@@ -46,15 +46,7 @@
 								<img src="/uploads/{{ $v->pic }}" title="{{ $v->desc }}" style="width: 200px; height: auto">
 							</td>
 							<td>
-								@if($v->status == 0)
-										<a href="javascript:;" onclick="changeStatus({{$v->id}},this)"><img src="/ad/img/off.png" style="width: 60px; height:auto;margin-top: 12px"></a>
-										
-									@else
-										<a href="javascript:;" onclick="changeStatus({{$v->id}},this)"><img src="/ad/img/on.png" style="width: 60px; height:auto;margin-top: 12px"></a>
-										
-										
-									@endif
-								
+								{{ $v->status == 0 ? '未开启' : '已开启'}}
 							</td>
 							<td>
 								<a href="/admin/banners/{{ $v->id }}/edit" class="btn btn-info">修改</a>
@@ -84,22 +76,5 @@
 			</div>     
 		</div>
 	</div>
-	<script type="text/javascript">
-		// 改变状态
-			function changeStatus(id,obj)
-			{
-				
-				$.get('/admin/banners/changeStatus',{id:id},function(res){
-					// console.log(res);
-					if(res == 'ok'){
-						// console.log('123');
-						$(obj).find('img').prop('src','/ad/img/on.png');
-					}else if(res == 'xx'){
-						$(obj).find('img').prop('src','/ad/img/off.png');
-					}else{
-						alert('激活失败或者停止激活失败');
-					}
-				},'html');
-			}
-	</script>
+	
 @endsection

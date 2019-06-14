@@ -25,8 +25,9 @@ Route::resource('admin/users','Admin\UsersController');
 // 后台 商品品牌管理  路由
 Route::resource('admin/brands','Admin\BrandsController');
 
-// 后台 轮播图 管路 路由
+// 后台 轮播图管理 路由
 Route::resource('admin/banners','Admin\BannersController');
+
 Route::get('admin/banners/changeStatus','Admin\BannersController@changeStatus');
 
 
@@ -101,3 +102,4 @@ Route::get('admin/banners/changeStatus','Admin\BannersController@changeStatus');
 //后台分类的路由
 Route::resource('admin/cates','Admin\CatesController');
 Route::resource('home/index','Home\IndexController');
+

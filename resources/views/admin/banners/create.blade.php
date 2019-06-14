@@ -54,10 +54,17 @@
 
 							  <div class="control-group success">
 								<label class="control-label" for="inputSuccess">轮 播 图 状 态 :</label>
+
 								<div class="controls">
-								  <input type="radio" id="inputSuccess" name="status" value="0" checked>未开启
-								 <input type="radio" id="inputSuccess" name="status" value="1"> 已开启
+								  <label class="radio">
+									<div id="uniform-optionsRadios1"><span class=""><input type="radio" id="inputSuccess" name="status" value="0" checked>未开启</span></div>
+								  </label>
+								  <div style="clear:both"></div>
+								  <label class="radio">
+									<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="status" value="1"> 已开启</span></div>
+								  </label>
 								</div>
+
 							  </div>
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">添 &nbsp; 加</button>

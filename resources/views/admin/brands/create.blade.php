@@ -14,13 +14,10 @@
 	</div>
 	@endif
 
-	
-
 	<div class="row-fluid sortable">
 				<div class="box span12">
 					<div class="box-header" data-original-title>
 						<h2><i class="halflings-icon white edit"></i><span class="break"></span>品 牌 添 加</h2>
-						
 					</div>
 					<div class="box-content">
 						<form class="form-horizontal" action="/admin/brands" method="post" enctype="multipart/form-data">
@@ -30,13 +27,16 @@
 							  <div class="control-group success">
 								<label class="control-label" for="inputSuccess">品牌名称:</label>
 								<div class="controls">
-								  <input type="text" id="inputSuccess" name="uname" value="{{ old('uname') }}">
+								  <input type="text" id="inputSuccess" name="bname" value="{{ old('bname') }}">
+								</div>
+							  </div>
+							  <div class="control-group success">
+								<label class="control-label" for="inputSuccess">品牌图片:</label>
+								<div class="controls">
+								  <input type="file" id="inputSuccess" name="img" value="{{ old('img') }}">
 								  
 								</div>
 							  </div>
-							 
-							 
-							  
 							  
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">添 &nbsp; 加</button>
@@ -46,8 +46,7 @@
 						  </form>
 					
 					</div>
-				</div><!--/span-->
+				</div>
 		</div>	
-			
 
 @endsection
