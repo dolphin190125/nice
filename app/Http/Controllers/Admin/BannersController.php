@@ -107,6 +107,7 @@ class BannersController extends Controller
         // 处理 修改 操作
         // 轮播图图片上传
          if($request->hasFile('pic')){
+
             Storage::delete($request->input('pic'));
             $banners_path = $request->file('pic')->store(date('Ymd'));
         }else{
@@ -116,6 +117,7 @@ class BannersController extends Controller
         $banner->title = $request->input('title','');
         $banner->desc = $request->input('desc','');
         $banner->pic = $banners_path;
+        $banner->status=$request->input('status','');
         $res = $banner->save();
          if($res){
             return redirect('admin/banners')->with('success','修改成功');
@@ -141,30 +143,5 @@ class BannersController extends Controller
         }
     }
 
-    // 处理 未开启 已开启状态
-    public function changeStatus(Request $request)
-    {
-        $id = $request->input('id',0);
-       
-        $data = Banners::find($id);
-
-        $status = $data->status;
-
-        if($status == 0){
-            $status = 1;
-        }else{
-            $status = 0;
-        }
-
-        $res = DB::table('banners')->where('id',$id)->update(['status'=>$status]);
-        if($res){
-            if($status == 1){
-                echo 'ok';
-            }else{
-                echo 'xx';
-            }
-        }else{
-            echo 'err';
-        }
-    }
+   
 }

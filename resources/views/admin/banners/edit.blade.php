@@ -45,12 +45,43 @@
 								</div>
 							  </div>
 							   <img src="/uploads/{{ $banner->pic }}" style="width: 200px; height: auto;margin-left: 100px">
+							   
 							   <input type="hidden" name="old_pic" value="{{ $banner->pic }}">
 							   <div class="control-group success">
 								<label class="control-label" for="inputSuccess">轮 播 图 图 片 :</label>
 								<div class="controls">
 								  <input type="file" id="inputSuccess" name="pic" >
 								  
+								</div>
+							  </div>
+
+							  <div class="control-group success">
+								<label class="control-label" for="inputSuccess">轮 播 图 状 态 :</label>
+								
+									@if($banner->status == 0)
+ 										<div class="controls">
+										  <label class="radio">
+											<div id="uniform-optionsRadios1"><span class=""><input type="radio" id="inputSuccess" name="status" value="0" checked>未开启</span></div>
+										  </label>
+										  <div style="clear:both"></div>
+										  <label class="radio">
+											<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="status" value="1"> 已开启</span></div>
+										  </label>
+										</div>
+									@else
+										 <div class="controls">
+										  <label class="radio">
+											<div id="uniform-optionsRadios1"><span class=""><input type="radio" id="inputSuccess" name="status" value="0" >未开启</span></div>
+										  </label>
+										  <div style="clear:both"></div>
+										  <label class="radio">
+											<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="status" value="1" checked> 已开启</span></div>
+										  </label>
+										</div>
+									@endif
+								 
+								 
+								   
 								</div>
 							  </div>
 
