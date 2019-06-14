@@ -104,6 +104,15 @@
 								
 							</ul>	
 						</li>
+						<!-- -------------------------栏 目 管 理 ------------------------------------>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">栏目管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/cates"><i class="icon-file-alt"></i><span class="hidden-tablet"> 栏目列表</span></a></li>
+								<li><a class="submenu" href="/admin/cates/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加栏目</span></a></li>
+								
+							</ul>	
+						</li>
 					</ul>
 				</div>
 			</div>
