@@ -70,6 +70,18 @@
 								  
 								</div>
 							  </div>
+							  <div class="control-group success">
+									<label class="control-label" for="inputSuccess">状 &nbsp; 态:</label>
+										<div class="controls">
+											  <label class="radio">
+												<div id="uniform-optionsRadios1"><span class=""><input type="radio" id="inputSuccess" name="status" value="0" checked>未激活</span></div>
+											  </label>
+											  <div style="clear:both"></div>
+											  <label class="radio">
+												<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="status" value="1">已激活</span></div>
+											  </label>
+										</div>
+							  </div>
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">添 &nbsp; 加</button>
 								

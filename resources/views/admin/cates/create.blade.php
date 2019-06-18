@@ -16,14 +16,14 @@
 	<div class="row-fluid sortable">
 		<div class="box span12">
 			<div class="box-header" data-original-title>
-				<h2><i class="halflings-icon white edit"></i><span class="break"></span>栏 目 添 加</h2>
+				<h2><i class="halflings-icon white edit"></i><span class="break"></span>分 类 添 加</h2>
 			</div>
 			<div class="box-content">
 				<form class="form-horizontal" action="/admin/cates" method="post" enctype="multipart/form-data">
 					{{ csrf_field() }}
 					<fieldset>
 						<div class="control-group success">
-							<label class="control-label" for="inputSuccess">栏 目 名:</label>
+							<label class="control-label" for="inputSuccess">分 类 名:</label>
 							<div class="controls">
 							  	<input type="text" id="inputSuccess" name="cates_name" value="{{ old('cates_name') }}">
 							</div>

@@ -70,6 +70,7 @@ class UsersController extends Controller
         $user->upass = Hash::make($data['upass']);
         $user->email = $data['email'];
         $user->phone = $data['phone'];
+        $user->status = $data['status'];
         // 执行添加操作
         $res1 = $user->save();
         // 如果添加成功 取出id
@@ -155,6 +156,7 @@ class UsersController extends Controller
         $user = Users::find($id);
         $user->email = $request->input('email','');
         $user->phone = $request->input('phone','');
+        $user->status = $request->input('status',0);
         $res1 = $user->save();
 
         $userinfo = UsersInfos::where('users_id',$id)->first();

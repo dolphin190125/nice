@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;
+use App\Models\Banners;
 class IndexController extends Controller
 {
     public static function getPidCatesData($pid = 0)
@@ -21,8 +22,12 @@ class IndexController extends Controller
      */
     public function index()
     {
+        $banners = new Banners;
+
+        $banners_data = Banners::where('status',1)->get();
+        // dd($banners_data);
         // 加载模板
-        return view('home.index.index');
+        return view('home.index.index',['banners_data'=>$banners_data]);
     }
 
     /**
