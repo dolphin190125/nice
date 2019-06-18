@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cates;
+use App\Models\Goods;
 class IndexController extends Controller
 {
     public static function getPidCatesData($pid = 0)
@@ -21,8 +22,10 @@ class IndexController extends Controller
      */
     public function index()
     {
+        // 商品
+        $goods=Goods::all();
         // 加载模板
-        return view('home.index.index');
+        return view('home.index.index',['goods'=>$goods]);
     }
 
     /**

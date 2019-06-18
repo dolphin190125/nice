@@ -33,6 +33,7 @@
 						  <th>品牌ID</th>
 						  <th>商品品牌名称</th>
 						  <th>商品品牌图片</th> 
+						  <th>是否显示</th> 
 						  <th>操作</th>                                          
 					  </tr>
 				  </thead>   
@@ -43,6 +44,9 @@
 							<td>{{ $v->bname }}</td>
 							<td>
 								<img src="/uploads/{{ $v->img }}" style="height: 100px;">
+							</td>
+							<td>
+								{{ $v->status == 0 ? '隐藏' : '显示'}}
 							</td>
 							<td>
 								<a href="/admin/brands/{{ $v->id }}/edit" class="btn btn-info">修改</a>

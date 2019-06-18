@@ -63,6 +63,7 @@ class BrandsController extends Controller
         // 
         $brand->bname = $data['bname'];
         $brand->img = $brands_path;
+        $brand->status = 0;
         // 执行数据库添加操作
         $res = $brand->save();
          if($res){
@@ -115,9 +116,10 @@ class BrandsController extends Controller
             $brands_path = $request->input('old_img');
         }
 
-       $brand = Brands::find($id);
+        $brand = Brands::find($id);
         
         $brand->img = $brands_path;
+        $brand->status = $request->input('status');
         // 执行数据库添加操作
         $res = $brand->save();
          if($res){

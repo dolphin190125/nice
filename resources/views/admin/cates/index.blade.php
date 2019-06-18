@@ -19,7 +19,7 @@
 </form>
 	<div class="box span12">
 		<div class="box-header">
-			<h2><i class="halflings-icon white align-justify"></i><span class="break"></span>用 户 列 表</h2>
+			<h2><i class="halflings-icon white align-justify"></i><span class="break"></span>分 类 列 表</h2>
 		</div>
 		<div class="box-content">
 			<table class="table table-bordered" id="table_css">

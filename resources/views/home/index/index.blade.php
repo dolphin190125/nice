@@ -169,34 +169,8 @@
         </form>                      
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
-    <div class="i_car">
-    	<div class="car_t">购物车 [ <span>3</span> ]</div>
-        <div class="car_bg">
-       		<!--Begin 购物车未登录 Begin-->
-        	<div class="un_login">还未登录！<a href="Login.html" style="color:#ff4e00;">马上登录</a> 查看购物车！</div>
-            <!--End 购物车未登录 End-->
-            <!--Begin 购物车已登录 Begin-->
-            <ul class="cars">
-            	<li>
-                	<div class="img"><a href="#"><img src="/ho/images/car1.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">法颂浪漫梦境50ML 香水女士持久清新淡香 送2ML小样3只</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-                <li>
-                	<div class="img"><a href="#"><img src="/ho/images/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-                <li>
-                	<div class="img"><a href="#"><img src="/ho/images/car2.jpg" width="58" height="58" /></a></div>
-                    <div class="name"><a href="#">香奈儿（Chanel）邂逅活力淡香水50ml</a></div>
-                    <div class="price"><font color="#ff4e00">￥399</font> X1</div>
-                </li>
-            </ul>
-            <div class="price_sum">共计&nbsp; <font color="#ff4e00">￥</font><span>1058</span></div>
-            <div class="price_a"><a href="#">去购物车结算</a></div>
-            <!--End 购物车已登录 End-->
-        </div>
+   <div class="i_car">
+        <div class="car_t"><a href="/home/car/store">购物车</a></div>
     </div>
 </div>
 <!--End Header End--> 
@@ -220,7 +194,7 @@
                                 <div class="zj_l_c">
                                     <h2>{{$vv->cates_name}}</h2>
                                     @foreach($vv->sub as $kkk=>$vvv)
-                                    <a href="#">{{$vvv->cates_name}}</a>|
+                                    <a href="/home/list/{{ $vvv->id}}">{{$vvv->cates_name}}</a>|
                                     @endforeach
                                 </div>
                                 @endforeach
@@ -324,81 +298,35 @@
                 <span class="price fl">￥53.00</span>
                 <span class="fr">16R</span>
             </div>
-        </div>
+        </div> 
         <div class="hot_pro">        	
         	<div id="featureContainer">
                 <div id="feature">
                     <div id="block">
                         <div id="botton-scroll">
                             <ul class="featureUL">
+                                @foreach($goods as $k=>$v)
+                                @if($v->status == '1')
                                 <li class="featureBox">
                                     <div class="box">
-                                    	<div class="h_icon"><img src="/ho/images/hot.png" width="50" height="50" /></div>
+                                    	<div class="h_icon">
+                                            <img src="/ho/images/hot.png" width="50" height="50" />
+                                        </div>
                                         <div class="imgbg">
-                                        	<a href="#"><img src="/ho/images/hot1.jpg" width="160" height="136" /></a>
+                                        	<a href="#"><img src="/uploads/{{ $v->pic }}" width="160" height="136" /></a>
                                         </div>                                        
                                         <div class="name">
                                         	<a href="#">
-                                            <h2>德国进口</h2>
-                                            德亚全脂纯牛奶200ml*48盒
+                                            <h2>{{$v->title}}</h2>
                                             </a>
                                         </div>
                                         <div class="price">
-                                            <font>￥<span>189</span></font> &nbsp; 26R
+                                            <font>￥<span>{{$v->price}}</span></font>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="featureBox">
-                                    <div class="box">
-                                        <div class="h_icon"><img src="/ho/images/hot.png" width="50" height="50" /></div>
-                                        <div class="imgbg">
-                                        	<a href="#"><img src="/ho/images/hot2.jpg" width="160" height="136" /></a>
-                                        </div>                                        
-                                        <div class="name">
-                                        	<a href="#">
-                                            <h2>iphone 6S</h2>
-                                            Apple/苹果 iPhone 6s Plus公开版
-                                            </a>
-                                        </div>
-                                        <div class="price">
-                                            <font>￥<span>5288</span></font> &nbsp; 25R
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="featureBox">
-                                    <div class="box">
-                                        <div class="h_icon"><img src="/ho/images/hot.png" width="50" height="50" /></div>
-                                        <div class="imgbg">
-                                        	<a href="#"><img src="/ho/images/hot3.jpg" width="160" height="136" /></a>
-                                        </div>                                        
-                                        <div class="name">
-                                        	<a href="#">
-                                            <h2>倩碧特惠组合套装</h2>
-                                            倩碧补水组合套装8折促销
-                                            </a>
-                                        </div>
-                                        <div class="price">
-                                            <font>￥<span>368</span></font> &nbsp; 18R
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="featureBox">
-                                    <div class="box">
-                                        <div class="h_icon"><img src="/ho/images/hot.png" width="50" height="50" /></div>
-                                        <div class="imgbg">
-                                        	<a href="#"><img src="/ho/images/hot4.jpg" width="160" height="136" /></a>
-                                        </div>                                        
-                                        <div class="name">
-                                        	<a href="#">
-                                            <h2>品利特级橄榄油</h2>
-                                            750ml*4瓶装组合 西班牙原装进口
-                                            </a>
-                                        </div>
-                                        <div class="price">
-                                            <font>￥<span>280</span></font> &nbsp; 30R
-                                        </div>
-                                    </div>
-                                </li>
+                                @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -408,81 +336,57 @@
             </div>
         </div>
     </div>
-    <!--Begin 限时特卖 Begin-->
+        <!--Begin 热卖 Begin-->
     <div class="i_t mar_10">
-    	<span class="fl">限时特卖</span>
-        <span class="i_mores fr"><a href="#">更多</a></span>
+        <span class="floor_num">1F</span>
+        <span class="fl">热门 <b>·</b> 热卖</span>                
+        <span class="i_mores fr"><a href="#">进口咖啡</a>&nbsp; &nbsp; &nbsp; <a href="#">进口酒</a>&nbsp; &nbsp; &nbsp; <a href="#">进口母婴</a>&nbsp; &nbsp; &nbsp; <a href="#">新鲜蔬菜</a>&nbsp; &nbsp; &nbsp; <a href="#">新鲜水果</a></span>
     </div>
     <div class="content">
-    	<div class="i_sell">
-            <div id="imgPlay">
-                <ul class="imgs" id="actor">
-                    <li><a href="#"><img src="/ho/images/tm_r.jpg" width="211" height="357" /></a></li>
-                    <li><a href="#"><img src="/ho/images/tm_r.jpg" width="211" height="357" /></a></li>
-                    <li><a href="#"><img src="/ho/images/tm_r.jpg" width="211" height="357" /></a></li>
-                </ul>
-                <div class="previ">上一张</div>
-                <div class="nexti">下一张</div>
-            </div>        
-        </div>
-        <div class="sell_right">
-        	<div class="sell_1">
-            	<div class="s_img"><a href="#"><img src="/ho/images/tm_1.jpg" width="185" height="155" /></a></div>
-            	<div class="s_price">￥<span>89</span></div>
-                <div class="s_name">
-                	<h2><a href="#">沙宣洗发水</a></h2>
-                    倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
-                </div>
+        <div class="fresh_left">
+            <div class="fre_ban">
+                <div id="imgPlay1">
+                    <ul class="imgs" id="actor1">
+                        <li><a href="#"><img src="/ho/images/fre_r.jpg" width="211" height="286" /></a></li>
+                        <li><a href="#"><img src="/ho/images/fre_r.jpg" width="211" height="286" /></a></li>
+                        <li><a href="#"><img src="/ho/images/fre_r.jpg" width="211" height="286" /></a></li>
+                    </ul>
+                    <div class="prevf">上一张</div>
+                    <div class="nextf">下一张</div> 
+                </div>   
             </div>
-            <div class="sell_2">
-            	<div class="s_img"><a href="#"><img src="/ho/images/tm_2.jpg" width="185" height="155" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
-                <div class="s_name">
-                	<h2><a href="#">德芙巧克力</a></h2>
-                    倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
-                </div>
-            </div>
-            <div class="sell_b1">
-            	<div class="sb_img"><a href="#"><img src="/ho/images/tm_b1.jpg" width="242" height="356" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
-                <div class="s_name">
-                	<h2><a href="#">东北大米</a></h2>
-                    倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
-                </div>
-            </div>
-            <div class="sell_3">
-            	<div class="s_img"><a href="#"><img src="/ho/images/tm_3.jpg" width="185" height="155" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
-                <div class="s_name">
-                	<h2><a href="#">迪奥香水</a></h2>
-                    倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
-                </div>
-            </div>
-            <div class="sell_4">
-            	<div class="s_img"><a href="#"><img src="/ho/images/tm_4.jpg" width="185" height="155" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
-                <div class="s_name">
-                	<h2><a href="#">美妆</a></h2>
-                    倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
-                </div>
-            </div>
-            <div class="sell_b2">
-            	<div class="sb_img"><a href="#"><img src="/ho/images/tm_b2.jpg" width="242" height="356" /></a></div>
-            	<div class="s_price">￥<span>289</span></div>
-                <div class="s_name">
-                	<h2><a href="#">美妆</a></h2>
-                    倒计时：<span>1200</span> 时 <span>30</span> 分 <span>28</span> 秒
+            <div class="fresh_txt">
+                <div class="fresh_txt_c">
+                    <a href="#">进口水果</a><a href="#">奇异果</a><a href="#">西柚</a><a href="#">海鲜水产</a><a href="#">品质牛肉</a><a href="#">奶粉</a><a href="#">鲜活禽蛋</a><a href="#">进口酒</a><a href="#">进口奶粉</a><a href="#">鲜活禽蛋</a>
                 </div>
             </div>
         </div>
-    </div>
-    <!--End 限时特卖 End-->
-    <div class="content mar_20">
-    	<img src="/ho/images/mban_1.jpg" width="1200" height="110" />
-    </div>
+        <div class="fresh_mid">
+            <ul>
+                @foreach($goods as $k=>$v)
+                @if($v->status == '2')
+                <li>
+                    <div class="name"><a href="#">{{$v->title}}</a></div>
+                    <div class="price">
+                        <font>￥<span>{{$v->price}}.00</span></font>
+                    </div>
+                    <div class="img"><a href="#"><img src="/uploads/{{ $v->pic }}" width="185" height="155" /></a></div>
+                </li>
+                @endif
+                @endforeach
+            </ul>
+        </div>
+        <div class="fresh_right">
+            <ul>
+                <li><a href="#"><img src="/ho/images/fre_b1.jpg" width="260" height="220" /></a></li>
+                <li><a href="#"><img src="/ho/images/fre_b2.jpg" width="260" height="220" /></a></li>
+            </ul>
+        </div>
+    </div>    
+    <!--End 进口 生鲜 End-->
 	<!--Begin 进口 生鲜 Begin-->
     <div class="i_t mar_10">
-    	<span class="floor_num">1F</span>
+    	<span class="floor_num">2F</span>
     	<span class="fl">进口 <b>·</b> 生鲜</span>                
         <span class="i_mores fr"><a href="#">进口咖啡</a>&nbsp; &nbsp; &nbsp; <a href="#">进口酒</a>&nbsp; &nbsp; &nbsp; <a href="#">进口母婴</a>&nbsp; &nbsp; &nbsp; <a href="#">新鲜蔬菜</a>&nbsp; &nbsp; &nbsp; <a href="#">新鲜水果</a></span>
     </div>
@@ -507,6 +411,7 @@
         </div>
         <div class="fresh_mid">
         	<ul>
+                
             	<li>
                 	<div class="name"><a href="#">新鲜美味  进口美食</a></div>
                     <div class="price">
@@ -514,41 +419,7 @@
                     </div>
                     <div class="img"><a href="#"><img src="/ho/images/fre_1.jpg" width="185" height="155" /></a></div>
                 </li>
-                <li>
-                	<div class="name"><a href="#">新鲜美味  进口美食</a></div>
-                    <div class="price">
-                    	<font>￥<span>198.00</span></font> &nbsp; 26R
-                    </div>
-                    <div class="img"><a href="#"><img src="/ho/images/fre_2.jpg" width="185" height="155" /></a></div>
-                </li>
-                <li>
-                	<div class="name"><a href="#">新鲜美味  进口美食</a></div>
-                    <div class="price">
-                    	<font>￥<span>198.00</span></font> &nbsp; 26R
-                    </div>
-                    <div class="img"><a href="#"><img src="/ho/images/fre_3.jpg" width="185" height="155" /></a></div>
-                </li>
-                <li>
-                	<div class="name"><a href="#">新鲜美味  进口美食</a></div>
-                    <div class="price">
-                    	<font>￥<span>198.00</span></font> &nbsp; 26R
-                    </div>
-                    <div class="img"><a href="#"><img src="/ho/images/fre_4.jpg" width="185" height="155" /></a></div>
-                </li>
-                <li>
-                	<div class="name"><a href="#">新鲜美味  进口美食</a></div>
-                    <div class="price">
-                    	<font>￥<span>198.00</span></font> &nbsp; 26R
-                    </div>
-                    <div class="img"><a href="#"><img src="/ho/images/fre_5.jpg" width="185" height="155" /></a></div>
-                </li>
-                <li>
-                	<div class="name"><a href="#">新鲜美味  进口美食</a></div>
-                    <div class="price">
-                    	<font>￥<span>198.00</span></font> &nbsp; 26R
-                    </div>
-                    <div class="img"><a href="#"><img src="/ho/images/fre_6.jpg" width="185" height="155" /></a></div>
-                </li>
+                
             </ul>
         </div>
         <div class="fresh_right">

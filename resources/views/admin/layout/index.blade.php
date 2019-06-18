@@ -104,12 +104,21 @@
 								
 							</ul>	
 						</li>
-						<!-- -------------------------栏 目 管 理 ------------------------------------>
+						<!-- -------------------------分 类 管 理 ------------------------------------>
 						<li>
-							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">栏目管理</span></a>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">分类管理</span></a>
 							<ul>
-								<li><a class="submenu" href="/admin/cates"><i class="icon-file-alt"></i><span class="hidden-tablet"> 栏目列表</span></a></li>
-								<li><a class="submenu" href="/admin/cates/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加栏目</span></a></li>
+								<li><a class="submenu" href="/admin/cates"><i class="icon-file-alt"></i><span class="hidden-tablet"> 分类列表</span></a></li>
+								<li><a class="submenu" href="/admin/cates/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加分类</span></a></li>
+								
+							</ul>	
+						</li>
+						<!-- -------------------------商 品 管 理 ------------------------------------>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">商品管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/goods"><i class="icon-file-alt"></i><span class="hidden-tablet"> 商品列表</span></a></li>
+								<li><a class="submenu" href="/admin/goods/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加商品</span></a></li>
 								
 							</ul>	
 						</li>
