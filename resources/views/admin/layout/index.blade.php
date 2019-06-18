@@ -3,7 +3,7 @@
 <head>
 	<!-- start: Meta -->
 	<meta charset="utf-8">
-	<title>Nice</title>
+	<title>Nice 后台</title>
 	<meta name="description" content="Bootstrap Metro Dashboard">
 	<meta name="author" content="Dennis Ji">
 	<meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -113,12 +113,20 @@
 								
 							</ul>	
 						</li>
+
 						<!-- -------------------------商 品 管 理 ------------------------------------>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">商品管理</span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/goods"><i class="icon-file-alt"></i><span class="hidden-tablet"> 商品列表</span></a></li>
 								<li><a class="submenu" href="/admin/goods/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加商品</span></a></li>
+
+						<!-- -------------------------友 情 链 接 管 理 ------------------------------------>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">友情链接管理</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/friendlinks"><i class="icon-file-alt"></i><span class="hidden-tablet"> 友情链接列表</span></a></li>
+								<li><a class="submenu" href="/admin/friendlinks/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加友情链接</span></a></li>
 								
 							</ul>	
 						</li>

@@ -31,7 +31,7 @@
 	<script type="text/javascript" src="/ho/js/lrscroll_1.js"></script>
     
     
-<title>尤洪</title>
+<title>Nice 首页</title>
 </head>
 <body>  
 <!--Begin Header Begin-->
@@ -114,44 +114,26 @@
         </span>
         <!--End 所在收货地区 End-->
         <span class="fr">
-        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
+              <!-- 判断登录成功与否 -->
+            
+            @if(session('home_login'))
+        	<span class="fl">你好，
+                <a href="/home/login">{{ session('home_user')->uname }}</a>&nbsp; 
+                <a href="/home/login/logout">退出</a>
+                <a href="/home/register" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
+                <a href="#">我的订单</a> &nbsp;|
+            </span>
+            @else
+            <span class="fl">你好，请
+                <a href="/home/login">登录</a>&nbsp; 
+                
+                <a href="/home/register" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
+                <a href="#">我的订单</a> &nbsp;|
+            </span>
+            @endif
         	<span class="ss">
-            	<div class="ss_list">
-                	<a href="#">收藏夹</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">我的收藏夹</a></li>
-                                <li><a href="#">我的收藏夹</a></li>
-                            </ul>
-                        </div>
-                    </div>     
-                </div>
-                <div class="ss_list">
-                	<a href="#">客户服务</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-                <div class="ss_list">
-                	<a href="#">网站导航</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">网站导航</a></li>
-                                <li><a href="#">网站导航</a></li>
-                            </ul>
-                        </div>
-                    </div>    
+            	<div class="">
+                	<a href="/home/usersinfo"> &nbsp;个人中心</a>
                 </div>
             </span>
             <span class="fl">|&nbsp;关注我们：</span>
@@ -230,9 +212,9 @@
     	<div class="banner">    	
             <div class="top_slide_wrap">
                 <ul class="slide_box bxslider">
-                    <li><img src="/ho/images/ban1.jpg" width="740" height="401" /></li>
-                    <li><img src="/ho/images/ban1.jpg" width="740" height="401" /></li> 
-                    <li><img src="/ho/images/ban1.jpg" width="740" height="401" /></li> 
+                    @foreach($banners_data as $k=>$v)
+                    <li><img src="/uploads/{{ $v->pic }}" width="740" height="401" /></li>
+                    @endforeach
                 </ul>	
                 <div class="op_btns clearfix">
                     <a href="#" class="op_btn op_prev"><span></span></a>

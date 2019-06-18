@@ -35,6 +35,8 @@
 						  <th>邮箱</th>
 						  <th>手机号</th>  
 						  <th>头像</th> 
+						  <th>状态</th> 
+						  <th>用户详情</th> 
 						  <th>头像创建时间</th>       
 						  <th>操作</th>                                          
 					  </tr>
@@ -48,7 +50,13 @@
 						<td>{{ $v->phone }}</td>                                       
 						<td>
 							<img src="/uploads/{{ $v->userinfo->profile }}" style="width: 50px;height: auto">
-						</td>                                       
+						</td>
+						<td>{{ $v->status == 0 ? '未激活' : '已激活' }}</td>   
+						<td>
+							
+							<!-- <a href="/admin/userinfos/create/{{ $v->id }}" class="btn btn-warning">添加详情</a> -->
+							<a href="/admin/userinfos/index/{{ $v->id }}" class="btn btn-success">查看详情</a>
+						</td>                                    
 						<td>{{ $v->created_at }}</td>                                       
 						<td>
 							<a href="/admin/users/{{ $v->id }}/edit" class="btn btn-info">修改</a>
