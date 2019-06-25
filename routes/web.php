@@ -146,9 +146,17 @@ Route::post('admin/goodsinfos/destroy/{id}','Admin\GoodsinfosController@destroy'
  
 // 前台首页的路由
 Route::resource('home/index','Home\IndexController');
-Route::get('home/list/{id}','Home\ListController@index');
+Route::get('home/list','Home\ListController@index');
 Route::get('home/details/{id}','Home\DetailsController@index');
-Route::get('home/car','Home\CarController@index');
-Route::get('home/car/store','Home\CarController@store');
-Route::get('home/car/destroy/{id}','Home\CarController@destroy');
+Route::get('home/car/index','Home\CarController@index');
+Route::get('home/car/add','Home\CarController@add');
+Route::get('home/car/addnum','Home\CarController@addNum');
+Route::get('home/car/descnum','Home\CarController@descNum');
+Route::get('home/car/delete','Home\CarController@delete');
 
+Route::get('home/order/account','Home\OrderController@account');
+Route::post('home/order/add','Home\OrderController@add');
+Route::get('home/order/create','Home\OrderController@create');
+Route::get('home/order/index','Home\OrderController@index');
+Route::get('home/order/myorder','Home\OrderController@myorder');
+Route::get('home/order/myods','Home\OrderController@myods');

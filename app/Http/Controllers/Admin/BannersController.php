@@ -59,7 +59,9 @@ class BannersController extends Controller
         $banner = new Banners;
         $banner->title = $data['title'];
         $banner->desc = $data['desc'];
+        $banner->status = $data['status'];
         $banner->pic = $banners_path;
+
          $res = $banner->save();
          if($res){
             return redirect('admin/banners')->with('success','添加成功');

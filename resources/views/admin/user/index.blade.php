@@ -49,7 +49,12 @@
 						<td>{{ $v->email }}</td>
 						<td>{{ $v->phone }}</td>                                       
 						<td>
-							<img src="/uploads/{{ $v->userinfo->profile }}" style="width: 50px;height: auto">
+							@if(empty($v->userinfo->profile))
+								<img src="/ad/img/tou.jpg" style="width: 50px;height: auto">
+							@else
+								<img src="/uploads/{{ $v->userinfo->profile }}" style="width: 50px;height: auto" >
+							@endif
+							
 						</td>
 						<td>{{ $v->status == 0 ? '未激活' : '已激活' }}</td>   
 						<td>

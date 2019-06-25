@@ -170,7 +170,7 @@
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
    <div class="i_car">
-        <div class="car_t"><a href="/home/car/store">购物车</a></div>
+        <div class="car_t"><a href="/home/car/index">购物车({{ $countCar }})</a></div>
     </div>
 </div>
 <!--End Header End--> 
@@ -194,7 +194,7 @@
                                 <div class="zj_l_c">
                                     <h2>{{$vv->cates_name}}</h2>
                                     @foreach($vv->sub as $kkk=>$vvv)
-                                    <a href="/home/list/{{ $vvv->id}}">{{$vvv->cates_name}}</a>|
+                                    <a href="/home/list?id={{ $vvv->id}}">{{$vvv->cates_name}}</a>|
                                     @endforeach
                                 </div>
                                 @endforeach
@@ -281,7 +281,7 @@
                 <div class="d_care"><a onclick="ShowDiv('MyDiv','fade')">关注商品</a></div>
             </div>
             <div class="des_join">
-                <form method="get" action="/home/car">
+                <form method="get" action="/home/car/add">
                     <div class="j_nums">
                         <input type="text" value="1" name="num" class="n_ipt" />
                         <input type="button" onclick="addUpdate(jq(this));" class="n_btn_1" />
@@ -580,7 +580,7 @@
                     <td width="40"><img src="/ho/images/suc.png" /></td>
                     <td>
                     	<span style="color:#3e3e3e; font-size:18px; font-weight:bold;">宝贝已成功添加到购物车</span><br />
-                    	购物车共有1种宝贝（3件） &nbsp; &nbsp; 合计：1120元
+                    	购物车共有({{ $countCar }})件宝贝 &nbsp; &nbsp; 合计：1120元
                     </td>
                   </tr>
                   <tr height="50" valign="bottom">

@@ -8,6 +8,7 @@ use App\Models\Cates;
 use App\Models\Goods;
 use App\Models\Brands;
 use App\Models\Goodsinfos;
+use App\Http\Controllers\Home\CarController;
 class DetailsController extends Controller
 {
     /**
@@ -17,12 +18,13 @@ class DetailsController extends Controller
      */
     public function index(Request $request,$id)
     {
+        $countCar = CarController::countCar();
         $goods = Goods::where('id',$id)->first();
         $goodsinfos = Goodsinfos::where('goods_id',$goods->id)->first();
         if(empty($goodsinfos)){
             return back();
         }
-        return view('home.details.index',['goods'=>$goods,'goodsinfos'=>$goodsinfos]);
+        return view('home.details.index',['goods'=>$goods,'goodsinfos'=>$goodsinfos,'countCar'=>$countCar]);
     }
 
     /**

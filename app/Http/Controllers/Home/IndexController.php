@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cates;
 use App\Models\Goods;
 use App\Models\Banners;
+use App\Http\Controllers\Home\CarController;
 class IndexController extends Controller
 {
     public static function getPidCatesData($pid = 0)
@@ -23,6 +24,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+        $countCar = CarController::countCar();
 
         // 商品
         $goods=Goods::all();
@@ -32,7 +34,7 @@ class IndexController extends Controller
         $banners_data = Banners::where('status',1)->get();
         // dd($banners_data);
         // 加载模板
-        return view('home.index.index',['banners_data'=>$banners_data,'goods'=>$goods]);
+        return view('home.index.index',['banners_data'=>$banners_data,'goods'=>$goods,'countCar'=>$countCar]);
 
     }
 

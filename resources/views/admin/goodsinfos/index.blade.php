@@ -45,7 +45,7 @@
 							<img src="/uploads/{{ $goodsinfos[0]->pic3 }}" style="width: 70px;height: auto">
 						</td>                                   
 						<td>
-							<a href="/admin/goodsinfos/edit/{{$goods->id}}" class="btn btn-info">修改商品详情</a>
+							<a href="/admin/goodsinfos/edit/{{$goods->id}}" class="btn btn-info">修改</a>
 							<form action="/admin/goodsinfos/destroy/{{ $goodsinfos[0]->id }}" method="post" style="display:inline-block">
 								{{ csrf_field() }}
 								<input type="submit" value="删除" class="btn btn-danger">

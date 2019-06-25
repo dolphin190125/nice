@@ -158,7 +158,7 @@
         <span class="fl"><a href="#">咖啡</a><a href="#">iphone 6S</a><a href="#">新鲜美食</a><a href="#">蛋糕</a><a href="#">日用品</a><a href="#">连衣裙</a></span>
     </div>
     <div class="i_car">
-    	<div class="car_t"><a href="/home/car/store">购物车</a></div>
+    	<div class="car_t"><a href="/home/car/index">购物车({{ $countCar }})</a></div>
     </div>
 </div>
 <!--End Header End--> 
@@ -182,7 +182,7 @@
                                 <div class="zj_l_c">
                                     <h2>{{$vv->cates_name}}</h2>
                                     @foreach($vv->sub as $kkk=>$vvv)
-                                    <a href="/home/list/{{ $vvv->id}}">{{$vvv->cates_name}}</a>|
+                                    <a href="/home/list?id={{ $vvv->id}}">{{$vvv->cates_name}}</a>|
                                     @endforeach
                                 </div>
                                 @endforeach
