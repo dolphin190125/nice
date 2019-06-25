@@ -14,4 +14,7 @@ class UsersInfos extends Model
     {
     	return $this->belongsTo('App\Models\Users');
     }
+
+    // 将所有的属性批量 赋值
+    protected $guarded = [];
 }

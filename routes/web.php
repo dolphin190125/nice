@@ -15,30 +15,47 @@ Route::get('/', function () {
 
     return view('welcome');
 });
+// Route::get('admin/add','Admin\InsertController@add');
+// 后台登录页面
+Route::get('admin/login','Admin\LoginController@login');
+Route::post('admin/dologin','Admin\LoginController@dologin');
+Route::get('admin/logout','Admin\LoginController@logout');
 
+Route::get('admin/rbac',function(){
+	return view('admin.rbac');
+});
+Route::group(['middleware'=>['login']],function(){
 // 后台首页路由
 Route::get('admin','Admin\IndexController@index');
-
 // 后台用户管理路由
 Route::resource('admin/users','Admin\UsersController');
 // 后台 用户详情 路由
-// Route::get('admin/userinfos/create/{id}','Admin\UsersInfosController@create');
-// Route::post('admin/userinfos/store/{id}','Admin\UsersInfosController@store');
 Route::get('admin/userinfos/index/{id}','Admin\UsersInfosController@index');
-Route::get('admin/userinfos/edit/{id}','Admin\UsersInfosController@edit');
-Route::post('admin/userinfos/update/{id}','Admin\UsersInfosController@update');
 
 // 后台 商品品牌管理  路由
 Route::resource('admin/brands','Admin\BrandsController');
 
 // 后台 轮播图管理 路由
 Route::resource('admin/banners','Admin\BannersController');
-
-
-
-
 // 后台 友情链接 路由
 Route::resource('admin/friendlinks','Admin\FriendsLinksController');
+
+// 后台 管理员 路由
+Route::resource('admin/adminusers','Admin\AdminusersController');
+
+// 后台 角色 管理 路由
+Route::resource('admin/roles','Admin\RolesController');
+// 后台 权限 管理 路由
+Route::resource('admin/nodes','Admin\NodesController');
+});
+
+
+
+
+
+
+
+
 
 // 前台 注册 路由
 Route::get('home/register','Home\RegisterController@index');
@@ -55,8 +72,13 @@ Route::post('home/login/dologin','Home\LoginController@dologin');
 Route::get('home/login/logout','Home\LoginController@logout');
 
 // 前台 个人中心 路由
-Route::get('home/usersinfo','Home\UsersinfoController@index');
+Route::get('home/usersinfo/{id}','Home\UsersinfoController@index');
+Route::post('home/usersinfo/edit/{id}','Home\UsersinfoController@edit');
+Route::post('home/usersinfo/update/{id}','Home\UsersinfoController@update');
 
+// 前台 账户安全路由
+Route::get('home/safe/{id}','Home\SafeController@index');
+Route::post('home/safe/changePass/{id}','Home\SafeController@changePass');
 
 
 

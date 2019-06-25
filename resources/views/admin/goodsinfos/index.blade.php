@@ -48,7 +48,7 @@
 							<a href="/admin/goodsinfos/edit/{{$goods->id}}" class="btn btn-info">修改商品详情</a>
 							<form action="/admin/goodsinfos/destroy/{{ $goodsinfos[0]->id }}" method="post" style="display:inline-block">
 								{{ csrf_field() }}
-								<input type="submit" value="删除" class="btn btn-danger">
+								<input type="submit" value="删除" onclick="return confirm('你确定要删除吗?')" class="btn btn-danger">
 							</form>
 						</td>                                     
 					</tr>

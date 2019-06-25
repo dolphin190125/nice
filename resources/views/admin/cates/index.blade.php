@@ -14,8 +14,8 @@
 @section('content')
 
 <form action="/admin/cates" method="get">
-	分 类 名: <input type="text" name="search_cates_name" value="{{ $params['search_cates_name'] or '' }}">
-	<input type="submit" class="btn btn-info" value="查询">
+	分 类 名: <input type="text" name="search_cates_name" value="{{ $params['search_cates_name'] or '' }}" style="margin-top: 10px">
+	<input type="submit" class="btn btn-info" value="查询" style="height: 30px">
 </form>
 	<div class="box span12">
 		<div class="box-header">

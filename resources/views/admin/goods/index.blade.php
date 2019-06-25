@@ -13,8 +13,8 @@
 @section('content')
 
 	<form action="/admin/goods" method="get">
-		商 品 名: <input type="text" name="search_title" value="{{ $params['search_title'] or '' }}">
-		<input type="submit" class="btn btn-info" value="查询">
+		商 品 名: <input type="text" name="search_title" value="{{ $params['search_title'] or '' }}" style="margin-top: 10px">
+		<input type="submit" class="btn btn-info" value="查询" style="height: 30px">
 	</form>
 	<div class="box span12">
 		<div class="box-header">
@@ -78,7 +78,7 @@
 							<form action="/admin/goods/{{ $v->id }}" method="post" style="display:inline-block">
 								{{ csrf_field() }}
 								{{ method_field('DELETE') }}
-								<input type="submit" value="删除" class="btn btn-danger">
+								<input type="submit" value="删除" onclick="return confirm('你确定要删除吗?')" class="btn btn-danger">
 							</form>
 						</td>                                     
 					</tr>

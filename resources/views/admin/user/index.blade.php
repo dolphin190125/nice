@@ -15,10 +15,10 @@
 
 <form action="/admin/users" method="get">
 
-	用 户 名: <input type="text" name="search_uname" value="{{ $params['search_uname'] or '' }}">
+	用 户 名: <input type="text" name="search_uname" value="{{ $params['search_uname'] or '' }}" style="margin-top: 10px">
 
-	邮 &nbsp;箱: <input type="text" name="search_email" value="{{ $params['search_email'] or '' }}">
-
+	邮 &nbsp;箱: <input type="text" name="search_email" value="{{ $params['search_email'] or '' }}" style="height: 30px">
+ 
 	<input type="submit" class="btn btn-info" value="查询">
 </form>
 	<div class="box span12">
@@ -63,7 +63,7 @@
 							<form action="/admin/users/{{ $v->id }}" method="post" style="display:inline-block">
 								{{ csrf_field() }}
 								{{ method_field('DELETE') }}
-								<input type="submit" value="删除" class="btn btn-danger">
+								<input type="submit" value="删除" onclick="return confirm('你确定要删除吗?')" class="btn btn-danger">
 								
 							</form>
 						</td>                                       
