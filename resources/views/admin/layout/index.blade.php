@@ -49,15 +49,11 @@
 						<!-- start: User Dropdown -->
 						<li class="dropdown">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-								<i class="halflings-icon white user"></i> Dennis Ji
-								<span class="caret"></span>
+								<img src="/uploads/{{ session('admin_user')->profile }}" style="width: 30px;height:30px"> {{ session('admin_user')->uname}}
 							</a>
 							<ul class="dropdown-menu">
-								<li class="dropdown-menu-title">
- 									<span>Account Settings</span>
-								</li>
 								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="login.html"><i class="halflings-icon off"></i> Logout</a></li>
+								<li><a href="/admin/logout"><i class="halflings-icon off"></i> Logout</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -128,6 +124,36 @@
 							<ul>
 								<li><a class="submenu" href="/admin/friendlinks"><i class="icon-file-alt"></i><span class="hidden-tablet"> 友情链接列表</span></a></li>
 								<li><a class="submenu" href="/admin/friendlinks/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加友情链接</span></a></li>
+
+								
+							</ul>	
+						</li>
+						<!-- ------------------------- 管 理 员 ------------------------------------>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">管理员</span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/adminusers"><i class="icon-file-alt"></i><span class="hidden-tablet"> 管理员列表</span></a></li>
+								<li><a class="submenu" href="/admin/adminusers/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加管理员</span></a></li>
+
+								
+							</ul>	
+						</li>
+						<!-- ------------------------- 角 色 管 理  ------------------------------------>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">角色管理 </span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/roles"><i class="icon-file-alt"></i><span class="hidden-tablet"> 角色列表</span></a></li>
+								<li><a class="submenu" href="/admin/roles/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加角色</span></a></li>
+
+								
+							</ul>	
+						</li>
+						<!-- ------------------------- 权 限 管 理  ------------------------------------>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">权限管理 </span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/nodes"><i class="icon-file-alt"></i><span class="hidden-tablet"> 权限列表</span></a></li>
+								<li><a class="submenu" href="/admin/nodes/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加权限</span></a></li>
 
 								
 							</ul>	

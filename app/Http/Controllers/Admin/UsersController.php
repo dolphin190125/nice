@@ -131,7 +131,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($id);
+        // dd($id);
         // 验证数据
         $this->validate($request, [
              'email' => 'required|email',

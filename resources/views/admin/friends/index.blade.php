@@ -15,9 +15,9 @@
 
 <form action="/admin/friendlinks" method="get">
 
-	链接名称: <input type="text" name="search_fname" value="">
+	链接名称: <input type="text" name="search_fname" value="" style="margin-top: 10px">
 
-	<input type="submit" class="btn btn-info" value="查询">
+	<input type="submit" class="btn btn-info" value="查询" style="height: 30px">
 </form>
 
 
@@ -55,7 +55,7 @@
 								<form action="/admin/friendlinks/{{ $v->id }}" method="post" style="display:inline-block">
 									{{ csrf_field() }}
 									{{ method_field('DELETE') }}
-									<input type="submit" value="删除" class="btn btn-danger">
+									<input type="submit" value="删除" onclick="return confirm('你确定要删除吗?')" class="btn btn-danger">
 									
 								</form>
 							</td>

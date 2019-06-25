@@ -15,9 +15,9 @@
 
 <form action="/admin/brands" method="get">
 
-	商品品牌: <input type="text" name="search_bname" value="">
+	商品品牌: <input type="text" name="search_bname" value="" style="margin-top: 10px">
 
-	<input type="submit" class="btn btn-info" value="查询">
+	<input type="submit" class="btn btn-info" value="查询" style="height: 30px">
 </form>
 
 
@@ -53,7 +53,7 @@
 							<form action="/admin/brands/{{ $v->id }}" method="post" style="display:inline-block">
 								{{ csrf_field() }}
 								{{ method_field('DELETE') }}
-								<input type="submit" value="删除" class="btn btn-danger">
+								<input type="submit" value="删除" onclick="return confirm('你确定要删除吗?')"class="btn btn-danger">
 							</form>
 							</td>
 						</tr>

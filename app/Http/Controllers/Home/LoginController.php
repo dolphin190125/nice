@@ -22,12 +22,12 @@ class LoginController extends Controller
     	$user_data = Users::where('uname','=',$uname)->first();
     	// dd($user_data); 
     	if(empty($user_data)){
-    		 echo "<script>alert('用户名或者密码错误1');location.href='/home/login'</script>";
+    		 echo "<script>alert('用户名或者密码错误');location.href='/home/login'</script>";
              exit;
     	}
 
     	if(!Hash::check($upass,$user_data->upass)){
-    		echo "<script>alert('用户名或者密码错误2');location.href='/home/login'</script>";
+    		echo "<script>alert('用户名或者密码错误');location.href='/home/login'</script>";
             exit;
     	}
 

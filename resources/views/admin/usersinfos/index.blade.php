@@ -13,12 +13,7 @@
 
 @section('content')
 
-<form action="/admin/userinfos/index" method="get">
 
-	用 户 名: <input type="text" name="search_uname" value="{{ $params['search_uname'] or '' }}">
-
-	<input type="submit" class="btn btn-info" value="查询">
-</form>
 	<div class="box span12">
 		<div class="box-header">
 			<h2><i class="halflings-icon white align-justify"></i><span class="break"></span>用 户 列 表</h2>
@@ -33,8 +28,10 @@
 						  <th>性别</th>
 						  <th>年龄</th>  
 						  <th>头像</th>  
+						  <th>邮箱</th>  
+						  <th>电话</th>  
 						  <th>地址</th> 
-						  <th>操作</th>                                          
+						                                          
 					  </tr>
 				  </thead>   
 				  <tbody >
@@ -54,11 +51,10 @@
 							<td>
 								<img src="/uploads/{{ $userinfo->profile }}" style="height: 50px;">
 							</td>
+							<td> {{ $userinfo->users->email }}</td>
+							<td> {{ $userinfo->users->phone }}</td>
 							<td>{{ $userinfo->addr }}</td>
-							<td>
-								<a href="/admin/userinfos/edit/{{ $userinfo->id }}" class="btn btn-success">修改</a>
-								
-							</td>
+							
 						</tr>
 					
 				  </tbody>

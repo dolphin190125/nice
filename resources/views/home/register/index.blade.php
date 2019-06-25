@@ -47,7 +47,7 @@
                      {{ csrf_field() }}
                      <div class="user-email">
                         <label for="email"><i class="am-icon-envelope-o"></i></label>
-                        <input type="email" name="email" id="email" placeholder="请输入邮箱账号">
+                        <input type="text" name="email" id="email" placeholder="请输入邮箱账号">
                      </div>                   
                      <div class="user-pass">
                         <label for="password"><i class="am-icon-lock"></i></label>
