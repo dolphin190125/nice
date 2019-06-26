@@ -125,7 +125,7 @@
                 
             </span>
             @else
-            <span class="fl">你好，请
+            <span class="fl">你好，请 
                 <a href="/home/login">登录</a>&nbsp; 
                 
                 <a href="/home/register" style="color:#ff4e00;">免费注册</a>
