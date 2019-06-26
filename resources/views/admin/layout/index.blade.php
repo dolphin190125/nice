@@ -159,7 +159,7 @@
 								
 							</ul>	
 						</li>
-<<<<<<< HEAD
+
 						<!-- ------------------------- 订 单 管 理  ------------------------------------>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">订单管理 </span></a>
@@ -172,7 +172,7 @@
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">评论管理 </span></a>
 							<ul>
 								<li><a class="submenu" href="/admin/speak/index"><i class="icon-file-alt"></i><span class="hidden-tablet"> 评论列表</span></a></li>
-=======
+
 						<!-- ------------------------- 标 签 云 管 理  ------------------------------------>
 						<li>
 							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">标签云管理 </span></a>
@@ -181,7 +181,7 @@
 								<li><a class="submenu" href="/admin/tagnames/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加标签云</span></a></li>
 
 								
->>>>>>> origin/wwx
+
 							</ul>	
 						</li>
 					</ul>
