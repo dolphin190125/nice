@@ -174,9 +174,9 @@ class GoodsinfosController extends Controller
         // 执行修改操作
         $res2 = $goodsinfos->save();
         if($res2){
-            return redirect('admin/goods')->with('success','添加成功');
+            return redirect('admin/goods')->with('success','修改成功');
         }else{
-            return back()->with('error','添加失败');
+            return back()->with('error','修改失败');
         }
     }
 

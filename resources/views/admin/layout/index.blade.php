@@ -52,8 +52,9 @@
 								<img src="/uploads/{{ session('admin_user')->profile }}" style="width: 30px;height:30px"> {{ session('admin_user')->uname}}
 							</a>
 							<ul class="dropdown-menu">
-								<li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
-								<li><a href="/admin/logout"><i class="halflings-icon off"></i> Logout</a></li>
+								<li><a href="/admin/changeprofile/{{ session('admin_user')->id }}"><i class="halflings-icon user"></i>修改头像</a></li>
+								<li><a href="/admin/changepass/{{ session('admin_user')->id }}"><i class="halflings-icon user"></i>修改密码</a></li>
+								<li><a href="/admin/logout"><i class="halflings-icon off"></i> 退出</a></li>
 							</ul>
 						</li>
 						<!-- end: User Dropdown -->
@@ -154,6 +155,16 @@
 							<ul>
 								<li><a class="submenu" href="/admin/nodes"><i class="icon-file-alt"></i><span class="hidden-tablet"> 权限列表</span></a></li>
 								<li><a class="submenu" href="/admin/nodes/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加权限</span></a></li>
+
+								
+							</ul>	
+						</li>
+						<!-- ------------------------- 标 签 云 管 理  ------------------------------------>
+						<li>
+							<a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet">标签云管理 </span></a>
+							<ul>
+								<li><a class="submenu" href="/admin/tagnames"><i class="icon-file-alt"></i><span class="hidden-tablet"> 标签云列表</span></a></li>
+								<li><a class="submenu" href="/admin/tagnames/create"><i class="icon-file-alt"></i><span class="hidden-tablet"> 添加标签云</span></a></li>
 
 								
 							</ul>	

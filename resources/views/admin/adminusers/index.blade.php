@@ -31,7 +31,6 @@
 					  <tr>
 						  <th>ID</th>
 						  <th>管理员名称</th>
-						 
 						  <th>头像</th>
 						  <th>操作</th>                                          
 					  </tr>

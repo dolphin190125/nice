@@ -20,7 +20,7 @@ class BannersController extends Controller
         $search_title = $request->input('search_title','');
 
 
-        $banners = Banners::where('title','like','%'.$search_title.'%')->paginate(2);
+        $banners = Banners::where('title','like','%'.$search_title.'%')->paginate(5);
 
         // 显示 轮播图 列表页面
         return view('admin.banners.index',['banners'=>$banners,'search_title'=>$search_title]);
@@ -60,6 +60,7 @@ class BannersController extends Controller
         $banner->title = $data['title'];
         $banner->desc = $data['desc'];
         $banner->status = $data['status'];
+        $banner->type = $data['type'];
         $banner->pic = $banners_path;
 
          $res = $banner->save();
@@ -120,6 +121,7 @@ class BannersController extends Controller
         $banner->desc = $request->input('desc','');
         $banner->pic = $banners_path;
         $banner->status=$request->input('status','');
+        $banner->type=$request->input('type','');
         $res = $banner->save();
          if($res){
             return redirect('admin/banners')->with('success','修改成功');

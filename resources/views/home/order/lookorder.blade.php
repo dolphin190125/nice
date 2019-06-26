@@ -148,7 +148,7 @@
 </div>
 <div class="m_top_bg">
     <div class="top">
-        <div class="m_logo"><a href="Index.html"><img src="/ho/images/logo1.png" /></a></div>
+        <div class="m_logo"><a href="/home/index"><img src="/ho/images/logo.png" /></a></div>
         <div class="m_search">
             <form>
                 <input type="text" value="" class="m_ipt" />

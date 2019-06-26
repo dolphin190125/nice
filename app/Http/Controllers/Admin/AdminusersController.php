@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+
 use DB;
 use Hash;
 class AdminusersController extends Controller
@@ -139,31 +139,17 @@ class AdminusersController extends Controller
     public function update(Request $request, $id)
     {
         //
-      
-        // 文件上传
-        if($request->hasFile('profile')){
-             //有新的文件上传 就删除之前的旧图片
-            Storage::delete($request->input('profile_path'));
-
-            $path = $request->file('profile')->store(date('Ymd'));
-        }else{
-            $path = $request->input('profile_path');
-        }
 
         $uname = $request->input('uname','');
-        $profile = $path;
+        // $profile = $path;
         $role_id = $request->input('role_id','');
 
 
-        $user_data = DB::table('admin_users')->where('id',$id)->update(['profile'=>$profile]);
-
         $res = DB::table('adminusers_roles')->where('user_id',$id)->update(['role_id'=>$role_id]);
 
-         if($user_data && $res){
-           
+         if($res){
             return redirect('admin/adminusers')->with('success','修改成功');
         }else{
-           
             return back()->with('error','修改失败');
         }
     }

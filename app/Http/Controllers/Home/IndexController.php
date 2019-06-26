@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cates;
 use App\Models\Goods;
 use App\Models\Banners;
+use App\Models\Tagnames;
 use App\Http\Controllers\Home\CarController;
 class IndexController extends Controller
 {
@@ -31,10 +32,13 @@ class IndexController extends Controller
 
         $banners = new Banners;
 
-        $banners_data = Banners::where('status',1)->get();
+        $banners_data = Banners::all();
+
+        $tagdatas = Tagnames::all();
+        // $tagphone = Tagnames::where('status',2)->get();
         // dd($banners_data);
         // 加载模板
-        return view('home.index.index',['banners_data'=>$banners_data,'goods'=>$goods,'countCar'=>$countCar]);
+        return view('home.index.index',['banners_data'=>$banners_data,'goods'=>$goods,'countCar'=>$countCar,'tagdatas'=>$tagdatas]);
 
     }
 

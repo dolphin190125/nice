@@ -17,9 +17,9 @@
 
 	用 户 名: <input type="text" name="search_uname" value="{{ $params['search_uname'] or '' }}" style="margin-top: 10px">
 
-	邮 &nbsp;箱: <input type="text" name="search_email" value="{{ $params['search_email'] or '' }}" style="height: 30px">
+	邮 &nbsp;箱: <input type="text" name="search_email" value="{{ $params['search_email'] or '' }}" style="margin-top: 10px">
  
-	<input type="submit" class="btn btn-info" value="查询">
+	<input type="submit" class="btn btn-info" value="查询" style="height: 30px">
 </form>
 	<div class="box span12">
 		<div class="box-header">

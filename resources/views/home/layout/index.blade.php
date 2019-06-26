@@ -109,9 +109,10 @@
                 <a href="/home/login">登录</a>&nbsp; 
                 
                 <a href="/home/register" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;
-                <a href="#">我的订单</a> &nbsp;|
+                
             </span>
             @endif
+            
             <span class="fl">&nbsp;关注我们：</span>
             <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
             <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="/ho/images/s_tel.png" align="absmiddle" /></a></span>
@@ -120,7 +121,7 @@
 </div>
 <div class="m_top_bg">
     <div class="top">
-        <div class="m_logo"><a href="Index.html"><img src="/ho/images/logo.png" style="width:207px;height:55px;"/></a></div>
+        <div class="m_logo"><a href="/home/index"><img src="/ho/images/logo.png" style="width:207px;height:55px;"/></a></div>
         <div class="m_search">
             <form>
                 <input type="text" value="" class="m_ipt" />
