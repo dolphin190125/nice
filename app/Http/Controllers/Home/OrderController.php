@@ -9,6 +9,7 @@ use App\Models\Goodsinfos;
 use App\Models\Addresses;
 use App\Models\Cars;
 use App\Models\Orders;
+use App\Models\Speaks;
 use App\Http\Controllers\Home\CarController;
 class OrderController extends Controller
 {
@@ -24,16 +25,13 @@ class OrderController extends Controller
         $data = $request->all();
         $id = $data['ad'];
         $pay = $data['pay'];
-        // dd($data);
         $adds = Addresses::where('id',$id)->first();
-        // dd($adds);
-        
         $list = $_SESSION['car'];
         // dd($list);
         foreach($list as $k=>$v){
             $orders = new Orders;
             $lists = json_decode($v);
-            $orders->orders_numbers = date('Ymd').mt_rand(1000, 9999);
+            $orders->orders_numbers = $lists->numbers;
             $orders->priceall = $lists->price * $lists->num;
             $orders->users_id = session('home_user')->id;
             $orders->address_id = $adds->id;
@@ -48,11 +46,18 @@ class OrderController extends Controller
     }
    public function myods()
     {
-        $ods = Orders::where('users_id',session('home_user')->id)->get();
+        $list = $_SESSION['car'];
+        foreach($list as $k=>$v){
+            $ods[] = json_decode($v);
+        }
+        // dd($ods);
+        // $ods = Orders::where('users_id',session('home_user')->id)->get();
         $zong = 0;
         foreach($ods as $k=>$v){
-            $zong += $v->priceall;
+            // dd($k);
+            $zong += $v->price;
         }
+        // dd($zong);
         return view('home.order.index',['ods'=>$ods,'zong'=>$zong]);
     }
 	// 结算页面
@@ -77,11 +82,9 @@ class OrderController extends Controller
  
         // 总价格
         $jiage = CarController::priceCount();
-
-        $address = Addresses::all();
-        if(empty($address)){
-            $address = '';
-        }
+        // dd(session('home_user')->id);
+        $address = Addresses::where('users_id',session('home_user')->id)->get();
+        
         // dd($cars_all);
         return view('home.order.account',['cars_all'=>$cars_all,'jiage'=>$jiage,'address'=>$address]);
     }
@@ -99,13 +102,14 @@ class OrderController extends Controller
              'phone.required' => '联系方式必填',
              'address.required' => '详细地址必填',
         ]);
-        // 执行用户添加操作
+        // 执行地址添加操作
         $data = $request->all();
         // 接收数据
         $addresses = new Addresses;
         $addresses->name = $data['name'];
         $addresses->phone = $data['phone'];
         $addresses->address = $data['address'];
+        $addresses->users_id = session('home_user')->id;
         // 执行添加操作
         $res1 = $addresses->save();
         if($res1){
@@ -116,6 +120,41 @@ class OrderController extends Controller
     }
     public function myorder()
     {
-        return view('home.order.lookorder');
+        $allods = Orders::where('users_id',session('home_user')->id)->get();
+        unset($_SESSION['car']);
+        return view('home.order.lookorder',['allods'=>$allods]);
+    }
+    public function speak($id)
+    {
+        $order = Orders::where('id',$id)->first();
+        return view('home.order.speak',['order'=>$order]);
+    }
+    public function dospeak(Request $request,$id)
+    {   if($request->hasFile('pic')){
+            $file_path = $request->file('pic')->store(date('Ymd'));
+        }else{
+            $file_path = '';
+        }
+        // dd($file_path);
+        // dd($request->all());
+        $ors = Orders::where('id',$id)->first();
+        // 上传图片
+        
+        
+        // 执行添加操作
+        $data = $request->all();
+        // 接收数据
+        $speaks = new Speaks;
+        $speaks->users_id = session('home_user')->id;
+        $speaks->goods_id = $ors->goods_id;
+        $speaks->speak = $data['spe'];
+        $speaks->start = $data['start'];
+        $speaks->picture = $file_path;
+        $res1 = $speaks->save();
+        if($res1){
+            echo "<script>alert('评论成功');location.href='/home/order/myorder'</script>";
+        }else{
+            return back()->with('error','添加失败');
+        }
     }
 }

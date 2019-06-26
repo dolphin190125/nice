@@ -35,131 +35,7 @@
 </head>
 <body>  
 <!--Begin Header Begin-->
-<div class="soubg">
-	<div class="sou">
-    	<!--Begin 所在收货地区 Begin-->
-    	<span class="s_city_b">
-        	<span class="fl">送货至：</span>
-            <span class="s_city">
-            	<span>四川</span>
-                <div class="s_city_bg">
-                	<div class="s_city_t"></div>
-                    <div class="s_city_c">
-                    	<h2>请选择所在的收货地区</h2>
-                        <table border="0" class="c_tab" style="width:235px; margin-top:10px;" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <th>A</th>
-                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
-                          </tr>
-                          <tr>
-                            <th>B</th>
-                            <td class="c_h"><span>北京</span></td>
-                          </tr>
-                          <tr>
-                            <th>C</th>
-                            <td class="c_h"><span>重庆</span></td>
-                          </tr>
-                          <tr>
-                            <th>F</th>
-                            <td class="c_h"><span>福建</span></td>
-                          </tr>
-                          <tr>
-                            <th>G</th>
-                            <td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>
-                          </tr>
-                          <tr>
-                            <th>H</th>
-                            <td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>
-                          </tr>
-                          <tr>
-                            <th>J</th>
-                            <td class="c_h"><span>江苏</span><span>吉林</span><span>江西</span></td>
-                          </tr>
-                          <tr>
-                            <th>L</th>
-                            <td class="c_h"><span>辽宁</span></td>
-                          </tr>
-                          <tr>
-                            <th>N</th>
-                            <td class="c_h"><span>内蒙古</span><span>宁夏</span></td>
-                          </tr>
-                          <tr>
-                            <th>Q</th>
-                            <td class="c_h"><span>青海</span></td>
-                          </tr>
-                          <tr>
-                            <th>S</th>
-                            <td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span class="c_check">四川</span><span>陕西</span></td>
-                          </tr>
-                          <tr>
-                            <th>T</th>
-                            <td class="c_h"><span>台湾</span><span>天津</span></td>
-                          </tr>
-                          <tr>
-                            <th>X</th>
-                            <td class="c_h"><span>西藏</span><span>香港</span><span>新疆</span></td>
-                          </tr>
-                          <tr>
-                            <th>Y</th>
-                            <td class="c_h"><span>云南</span></td>
-                          </tr>
-                          <tr>
-                            <th>Z</th>
-                            <td class="c_h"><span>浙江</span></td>
-                          </tr>
-                        </table>
-                    </div>
-                </div>
-            </span>
-        </span>
-        <!--End 所在收货地区 End-->
-        <span class="fr">
-        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
-        	<span class="ss">
-            	<div class="ss_list">
-                	<a href="#">收藏夹</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">我的收藏夹</a></li>
-                                <li><a href="#">我的收藏夹</a></li>
-                            </ul>
-                        </div>
-                    </div>     
-                </div>
-                <div class="ss_list">
-                	<a href="#">客户服务</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-                <div class="ss_list">
-                	<a href="#">网站导航</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">网站导航</a></li>
-                                <li><a href="#">网站导航</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-            </span>
-            <span class="fl">|&nbsp;关注我们：</span>
-            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="/ho/images/s_tel.png" align="absmiddle" /></a></span>
-        </span>
-    </div>
-</div>
+@include('home.layout.header')
 <div class="top">
     <div class="logo"><a href="Index.html"><img src="/ho/images/logo.png" /></a></div>
     <div class="search">
@@ -449,79 +325,35 @@
             
             <div class="des_border" id="p_comment">
             	<div class="des_t">商品评论</div>
-                
-                <table border="0" class="jud_tab" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td width="175" class="jud_per">
-                    	<p>80.0%</p>好评度
-                    </td>
-                    <td width="300">
-                    	<table border="0" style="width:100%;" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <td width="90">好评<font color="#999999">（80%）</font></td>
-                            <td><img src="/ho/images/pl.gif" align="absmiddle" /></td>
-                          </tr>
-                          <tr>
-                            <td>中评<font color="#999999">（20%）</font></td>
-                            <td><img src="/ho/images/pl.gif" align="absmiddle" /></td>
-                          </tr>
-                          <tr>
-                            <td>差评<font color="#999999">（0%）</font></td>
-                            <td><img src="/ho/images/pl.gif" align="absmiddle" /></td>
-                          </tr>
-                        </table>
-                    </td>
-                    <td width="185" class="jud_bg">
-                    	购买过雅诗兰黛第六代特润精华露50ml的顾客，在收到商品才可以对该商品发表评论
-                    </td>
-                    <td class="jud_bg">您可对已购买商品进行评价<br /><a href="#"><img src="/ho/images/btn_jud.gif" /></a></td>
-                  </tr>
-                </table>		
+		
                 <table border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
+                @if(!empty($speak))
+                @foreach($speak as $k=>$v)
                   <tr valign="top">
-                    <td width="160"><img src="/ho/images/peo1.jpg" width="20" height="20" align="absmiddle" />&nbsp;向死而生</td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
+                    <td width="160"><img src="/uploads/{{$v->speaks_users->userinfo->profile}}" width="20" height="20" align="absmiddle" />&nbsp;{{$v->speaks_users->uname}}</td>
+                    <td>
+                        @if($v->start == 0)
+                            ★
+                        @elseif($v->start == 1)
+                            ★★
+                        @elseif($v->start == 2)
+                            ★★★
+                        @elseif($v->start == 3)
+                            ★★★★
+                        @elseif($v->start == 4)
+                            ★★★★★
+                        @endif
                     </td>
                     <td>
-                    	产品很好，香味很喜欢，必须给赞。 <br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="/ho/images/peo2.jpg" width="20" height="20" align="absmiddle" />&nbsp;就是这么想的</td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
+                       <img src="/uploads/{{$v->picture}}" style="width:50px;">
                     </td>
                     <td>
-                    	送朋友，她很喜欢，大爱。 <br />
-                        <font color="#999999">2015-09-24</font>
+                    	{{$v->speak}} <br />
+                        <font color="#999999">{{$v->created_at}}</font>
                     </td>
                   </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="/ho/images/peo3.jpg" width="20" height="20" align="absmiddle" />&nbsp;墨镜墨镜</td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                    	大家都说不错<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="/ho/images/peo4.jpg" width="20" height="20" align="absmiddle" />&nbsp;那*****洋 <br /><font color="#999999">（匿名用户）</font></td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                    	下次还会来买，推荐。<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
+                  @endforeach
+                @endif
                 </table>
 
                 	

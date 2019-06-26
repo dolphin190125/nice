@@ -7,89 +7,28 @@ use App\Http\Controllers\Controller;
 use App\Models\Cates;
 use App\Models\Goods;
 use App\Models\Brands;
+use App\Models\Speaks;
 use App\Models\Goodsinfos;
 use App\Http\Controllers\Home\CarController;
 class DetailsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // 商品详情页
     public function index(Request $request,$id)
     {
+        // 拿到CarController下面的countCar方法,统计购物车的总数量,在购物车( n )显示
         $countCar = CarController::countCar();
+        // 拿到本条商品的数据
         $goods = Goods::where('id',$id)->first();
+        // 拿到本商品的所有评论
+        $speak = Speaks::where('goods_id',$id)->get();
+        // 拿到本商品的商品详情
         $goodsinfos = Goodsinfos::where('goods_id',$goods->id)->first();
+        // 如果没有详情,就返回
         if(empty($goodsinfos)){
             return back();
         }
-        return view('home.details.index',['goods'=>$goods,'goodsinfos'=>$goodsinfos,'countCar'=>$countCar]);
+        return view('home.details.index',['goods'=>$goods,'goodsinfos'=>$goodsinfos,'countCar'=>$countCar,'speak'=>$speak]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
