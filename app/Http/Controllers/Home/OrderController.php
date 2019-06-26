@@ -43,7 +43,7 @@ class OrderController extends Controller
             $orders->save();
         }
         return redirect('home/order/myods');
-    }
+    } 
    public function myods()
     {
         $list = $_SESSION['car'];
@@ -122,13 +122,15 @@ class OrderController extends Controller
     {
         $allods = Orders::where('users_id',session('home_user')->id)->get();
         unset($_SESSION['car']);
-        return view('home.order.lookorder',['allods'=>$allods]);
+        return view('home.order.myorder',['allods'=>$allods]);
     }
+
     public function speak($id)
     {
         $order = Orders::where('id',$id)->first();
         return view('home.order.speak',['order'=>$order]);
     }
+
     public function dospeak(Request $request,$id)
     {   if($request->hasFile('pic')){
             $file_path = $request->file('pic')->store(date('Ymd'));

@@ -66,6 +66,25 @@
 									</div>
 
 							  </div>
+
+							   <div class="control-group success">
+								<label class="control-label" for="inputSuccess">轮 播 图 分 类 :</label>
+
+									<div class="controls">
+									  <label class="radio">
+										<div id="uniform-optionsRadios1"><span class="checked"><input type="radio" id="inputSuccess" name="type" value="1" checked>热门*特卖</span></div>
+									  </label>
+									  <div style="clear:both"></div>
+									  <label class="radio">
+										<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="type" value="2">数码*家电</span></div>
+									  </label>
+									   <div style="clear:both"></div>
+									   <label class="radio">
+										<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="type" value="0">首页大图</span></div>
+									  </label>
+									</div>
+
+							  </div>
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">添 &nbsp; 加</button>
 								

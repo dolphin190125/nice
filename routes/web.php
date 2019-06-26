@@ -20,6 +20,13 @@ Route::get('/', function () {
 Route::get('admin/login','Admin\LoginController@login');
 Route::post('admin/dologin','Admin\LoginController@dologin');
 Route::get('admin/logout','Admin\LoginController@logout');
+// 后台 修改密码 路由
+Route::get('admin/changepass/{id}','Admin\LoginController@changepass');
+Route::post('admin/dopass/{id}','Admin\LoginController@dopass');
+// 后台修改头像 路由
+Route::get('admin/changeprofile/{id}','Admin\LoginController@changeprofile');
+Route::post('admin/doprofile/{id}','Admin\LoginController@doprofile');
+
 
 Route::get('admin/rbac',function(){
 	return view('admin.rbac');
@@ -27,6 +34,7 @@ Route::get('admin/rbac',function(){
 Route::group(['middleware'=>['login']],function(){
 // 后台首页路由
 Route::get('admin','Admin\IndexController@index');
+
 // 后台用户管理路由
 Route::resource('admin/users','Admin\UsersController');
 // 后台 用户详情 路由
@@ -39,7 +47,8 @@ Route::resource('admin/brands','Admin\BrandsController');
 Route::resource('admin/banners','Admin\BannersController');
 // 后台 友情链接 路由
 Route::resource('admin/friendlinks','Admin\FriendsLinksController');
-
+// 后台 标签云 路由
+Route::resource('admin/tagnames','Admin\TagnamesController');
 // 后台 管理员 路由
 Route::resource('admin/adminusers','Admin\AdminusersController');
 

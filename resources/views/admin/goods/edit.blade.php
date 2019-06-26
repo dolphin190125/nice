@@ -96,6 +96,7 @@
 									<option value="1">热门商品</option>
 									<option value="2">限时特卖</option>
 									<option value="3">猜你喜欢</option>
+									<option value="4">数码家电</option>
 							  	</select>
 							</div>
 						</div>

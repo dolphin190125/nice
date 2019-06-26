@@ -71,7 +71,7 @@
 							</div>
 					  	</div>
 					  	<div class="form-actions">
-							<button type="submit" class="btn btn-primary">添 &nbsp; 加</button>&nbsp;&nbsp;&nbsp;
+							<button type="submit" class="btn btn-primary">修 &nbsp; 改</button>&nbsp;&nbsp;&nbsp;
 							<a href="/admin/goods" class="btn btn-warning">返 &nbsp; 回</a>
 					  	</div>
 					</fieldset>

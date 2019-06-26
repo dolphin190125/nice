@@ -31,18 +31,7 @@
 								  <input type="text" id="inputSuccess" name="uname" value="{{ $adminuser_data->uname }}" disabled>
 								</div>
 							  </div>
-							  @if(!empty($adminuser_data->profile))
-							  <img src="/uploads/{{ $adminuser_data->profile }}" style="width: 80px;height: auto;margin-left: 240px">
-							  @else
-							  <img src="/ad/img/tou.jpg" style="width: 80px;height: auto;margin-left: 240px">
-							  @endif
-							   <div class="control-group success">
-								<label class="control-label" for="inputSuccess">头像 :</label>
-								<div class="controls">
-								  <input type="file" id="inputSuccess" name="profile" value="">
-								  <input type="hidden" name="profile_path" value="{{$adminuser_data->profile}}">
-								</div>
-							  </div>
+						
 							  <div class="control-group success">
 								<label class="control-label">角色权限 :</label>
 								<div class="controls">

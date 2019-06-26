@@ -83,7 +83,58 @@
 								 
 								   
 								</div>
-							  </div>
+
+								<div class="control-group success">
+								<label class="control-label" for="inputSuccess">轮 播 图 分 类 :</label>
+								
+									@if($banner->type == 1)
+ 										<div class="controls">
+										  <label class="radio">
+											<div id="uniform-optionsRadios1"><span class=""><input type="radio" id="inputSuccess" name="type" value="1" checked>热门*特卖</span></div>
+										  </label>
+										  <div style="clear:both"></div>
+										  <label class="radio">
+											<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="type" value="2"> 数码*家电</span></div>
+										  </label>
+										   <div style="clear:both"></div>
+										   <label class="radio">
+											<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="type" value="0">首页大图</span></div>
+										  </label>
+										</div>
+									@elseif($banner->type == 2)
+										 <div class="controls">
+										  <label class="radio">
+											<div id="uniform-optionsRadios1"><span class=""><input type="radio" id="inputSuccess" name="type" value="0" >热门*特卖</span></div>
+										  </label>
+										  <div style="clear:both"></div>
+										  <label class="radio">
+											<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="type" value="1" checked> 数码*家电</span></div>
+										  </label>
+										   <div style="clear:both"></div>
+										   <label class="radio">
+											<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="type" value="0">首页大图</span></div>
+										  </label>
+										</div>
+									@else
+									 	<div class="controls">
+										  <label class="radio">
+											<div id="uniform-optionsRadios1"><span class=""><input type="radio" id="inputSuccess" name="type" value="0" >热门*特卖</span></div>
+										  </label>
+										  <div style="clear:both"></div>
+										  <label class="radio">
+											<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="type" value="1" > 数码*家电</span></div>
+										  </label>
+										   <div style="clear:both"></div>
+										   <label class="radio">
+											<div id="uniform-optionsRadios2"><span class="checked"><input type="radio" id="inputSuccess" name="type" value="0" checked>首页大图</span></div>
+										  </label>
+										</div>
+									@endif
+								 
+								 
+								   
+								</div>
+						 </div>
 
 							  <div class="form-actions">
 								<button type="submit" class="btn btn-primary">修 &nbsp; 改</button>

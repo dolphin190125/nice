@@ -50,11 +50,11 @@
 							</td>
 							<td>
 								<a href="/admin/brands/{{ $v->id }}/edit" class="btn btn-info">修改</a>
-							<form action="/admin/brands/{{ $v->id }}" method="post" style="display:inline-block">
-								{{ csrf_field() }}
-								{{ method_field('DELETE') }}
-								<input type="submit" value="删除" onclick="return confirm('你确定要删除吗?')"class="btn btn-danger">
-							</form>
+								<form action="/admin/brands/{{ $v->id }}" method="post" style="display:inline-block">
+									{{ csrf_field() }}
+									{{ method_field('DELETE') }}
+									<input type="submit" value="删除" onclick="return confirm('你确定要删除吗?')"class="btn btn-danger">
+								</form>
 							</td>
 						</tr>
 				  	@endforeach

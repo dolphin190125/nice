@@ -34,6 +34,7 @@
 						  <th>轮播图标题</th>
 						  <th>轮播图图片</th>  
 						  <th>轮播图状态</th>       
+						  <th>轮播图分类</th>       
 						  <th>操作</th>                                          
 					  </tr>
 				  </thead>   
@@ -47,6 +48,15 @@
 							</td>
 							<td>
 								{{ $v->status == 0 ? '未开启' : '已开启'}}
+							</td>
+							<td>
+								@if($v->type == 1)
+									<span>热门*特卖</span>
+								@elseif($v->type == 2)
+									<span>数码*家电</span>
+								@else
+									<span>首页大图</span>
+								@endif
 							</td>
 							<td>
 								<a href="/admin/banners/{{ $v->id }}/edit" class="btn btn-info">修改</a>
