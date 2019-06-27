@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Tagnames;
+use App\Models\Cates;
 class TagnamesController extends Controller
 {
     /**
@@ -30,8 +31,8 @@ class TagnamesController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.tagnames.create');
+        $cates = Cates::all();
+        return view('admin.tagnames.create',['cates'=>$cates]);
     }
 
     /**
@@ -42,13 +43,14 @@ class TagnamesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
         // 处理 添加操作
         $data = $request->all();
         $tagname = new Tagnames;
         // 
         $tagname->tag_name = $data['tag_name'];
         $tagname->status = $data['status'];
+        $tagname->cates_id = $data['cates_id'];
         // 执行数据库添加操作
         $res = $tagname->save();
          if($res){
@@ -77,9 +79,12 @@ class TagnamesController extends Controller
      */
     public function edit($id)
     {
-        //
+        
         $tag_data = Tagnames::find($id);
-        return view('admin.tagnames.edit',['tag_data'=>$tag_data]);
+        $cates = Cates::all();
+        $cate = Cates::find($tag_data->cates_id);
+        $cates_id=$cate->id;
+        return view('admin.tagnames.edit',['tag_data'=>$tag_data,'cates'=>$cates,'cates_id'=>$cates_id]);
     }
 
     /**

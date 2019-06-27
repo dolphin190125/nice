@@ -12,6 +12,7 @@ use DB;
 use App\Http\Controllers\Home\CarController;
 class ListController extends Controller
 {
+    // 一实例化自动加载,引入中文分词的文件
     public function __construct()
     {
         // 引入类文件
@@ -27,11 +28,12 @@ class ListController extends Controller
         //忽略标点符号
         $this->cws->set_ignore(true);
     }
-
+    // 一旦调用,直接把goods商品表里面的数据,自动分好词,都添加进goods_words表里
     public function dataWord()
     {
+        // 先拿到商品表里的所有数据,字段只有商品题目和商品id
         $data = DB::table('goods')->select('title','id')->get();
-        // dd($data);
+        // 通过遍历,分好词,然后逐个词添加进表里
         foreach($data as $key =>$value){
             $arr = $this->word($value->title);
             foreach($arr as $kk => $vv){
@@ -40,52 +42,50 @@ class ListController extends Controller
             
         }
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // 加载列表页
     public function index(Request $request)
     {
+        // 第一次加载时,先分词
         // $this->dataWord();
+        // 拿到购物车里面的商品数量
         $countCar = CarController::countCar();
+        // 拿到搜索的数据,如果没有拿到空
         $search = $request->input('search','');
+        // 拿到传过来的分类id
         $id = $request->input('id','');
         if(!empty($search)){
+            // 如果搜索不是空的,就把搜索到的商品,放到goods里面
             if(preg_match('/[\w]/',$search)){
-                // dump(preg_match('/[\w]/',$search));
                 $goods = DB::table('goods')->where('title','like','%'.$search.'%')->get();
             }else{
+                // 把视图里面的goods_id拿出来,通过搜索
                 $gid = DB::table('view_goods_words')->select('goods_id')->where('word',$search)->get();
-                // dump($gid);
+                // 声明一个空数组
                 $gids = [];
                 foreach ($gid as $key => $value) {
+                    // 这个数组来存放所有的goods_id
                     $gids[] = $value->goods_id;
                 }
-                // dump($gids);
-                // dump($data2);
+                // 通过gids来找到相关的所有商品
                 $goods = DB::table('goods')->whereIn('id',$gids)->get();
             }
         }else{
+            // 如果搜索是空的,那就通过传来的分类id,搜索相关商品
             if(!empty($id)){
                 $goods = Goods::where('cates_id',$id)->get();
             }
         }
-        
+        // 获取所有的轮播图
         $brands = Brands::all();
         return view('home.list.index',['brands'=>$brands,'goods'=>$goods,'countCar'=>$countCar]);
     }
 
-     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function word($text)
     {
         $arr = explode(' ',$text);
         $preg = '/[\w\+\%\.\(\)]+/';
         $string = '';
+        // 拼接字符串
         foreach($arr as $key => $value) {
             $string .= preg_replace($preg,'',$value);
         }
@@ -101,72 +101,6 @@ class ListController extends Controller
             $list[] = $value['word'];
         }
         return $list;
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
     public function __destruct()
     {

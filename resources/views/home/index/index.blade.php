@@ -241,7 +241,7 @@
                 <div class="fresh_txt_c">
                     @foreach($tagdatas as $k=>$v)
                     @if($v->status == 1)
-                    <a href="/home/list">{{ $v->tag_name }}</a>
+                    <a href="/home/list?id={{ $v->cates_id}}">{{ $v->tag_name }}</a>
                     @endif
                     @endforeach
                 </div>
@@ -302,7 +302,7 @@
             	<div class="fresh_txt_c">
                     @foreach($tagdatas as $k=>$v)
                     @if($v->status == 2)
-                	<a href="#">{{ $v->tag_name }}</a>
+                	<a href="/home/list?id={{ $v->cates_id}}">{{ $v->tag_name }}</a>
                     @endif
                     @endforeach
                 </div>

@@ -9,7 +9,7 @@ class SpeakController extends Controller
 {
     public function index(Request $request)
     {
-
+    	// 查看评论
     	$speaks = Speaks::paginate(5);
     	return view('admin.speak.index',['speaks'=>$speaks,'params'=>$request->all()]);
     }

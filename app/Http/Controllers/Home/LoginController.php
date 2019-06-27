@@ -8,24 +8,26 @@ use App\Models\Users;
 use Hash;
 class LoginController extends Controller
 {
-    //
+    // 登录界面
     public function login()
     {
     	return view('home.login.index');
     }
-
+    // 执行登录
     public function dologin(Request $request)
     {
+        // 拿到输入的uname和密码
     	$uname = $request->input('uname','');
     	$upass = $request->input('upass','');
-
+        // 用输入的用户名去表里查询,有没有这条数据
     	$user_data = Users::where('uname','=',$uname)->first();
     	// dd($user_data); 
+        // 没有数据就是用户名过密码错误了
     	if(empty($user_data)){
     		 echo "<script>alert('用户名或者密码错误');location.href='/home/login'</script>";
              exit;
     	}
-
+        // 如果查到了,再验证密码是不是跟表里的密码一样
     	if(!Hash::check($upass,$user_data->upass)){
     		echo "<script>alert('用户名或者密码错误');location.href='/home/login'</script>";
             exit;
@@ -42,6 +44,7 @@ class LoginController extends Controller
     // 退出登录
     public function logout()
     {
+        // 把session清空
     	session(['home_login'=>false]);
     	session(['home_user'=>null]);
 

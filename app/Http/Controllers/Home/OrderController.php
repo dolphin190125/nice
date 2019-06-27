@@ -13,21 +13,23 @@ use App\Models\Speaks;
 use App\Http\Controllers\Home\CarController;
 class OrderController extends Controller
 {
+    // 加载添加地址的页面
     public function create()
     {
         return view('home.order.create');
     }
     public function index(Request $request)
     {
+        // 没登录不能生成订单,退到登录页面
         if(empty(session('home_login'))){
-            return back();
+            return view('home.login.index');
         }
         $data = $request->all();
         $id = $data['ad'];
         $pay = $data['pay'];
         $adds = Addresses::where('id',$id)->first();
         $list = $_SESSION['car'];
-        // dd($list);
+        // 添加订单表
         foreach($list as $k=>$v){
             $orders = new Orders;
             $lists = json_decode($v);
@@ -44,20 +46,19 @@ class OrderController extends Controller
         }
         return redirect('home/order/myods');
     } 
-   public function myods()
+    // 生成订单的页面
+    public function myods()
     {
+        // 拿到session里面的数据
         $list = $_SESSION['car'];
         foreach($list as $k=>$v){
             $ods[] = json_decode($v);
         }
-        // dd($ods);
-        // $ods = Orders::where('users_id',session('home_user')->id)->get();
         $zong = 0;
+        // 获取总价钱
         foreach($ods as $k=>$v){
-            // dd($k);
             $zong += $v->price;
         }
-        // dd($zong);
         return view('home.order.index',['ods'=>$ods,'zong'=>$zong]);
     }
 	// 结算页面
@@ -79,16 +80,18 @@ class OrderController extends Controller
         }else{
             $cars_all = [];
         }
- 
         // 总价格
         $jiage = CarController::priceCount();
+        if(empty(session('home_login'))){
+            return view('home.login.index');
+        }
         // dd(session('home_user')->id);
         $address = Addresses::where('users_id',session('home_user')->id)->get();
         
         // dd($cars_all);
         return view('home.order.account',['cars_all'=>$cars_all,'jiage'=>$jiage,'address'=>$address]);
     }
-
+    // 执行添加地址的方法
     public function add(Request $request)
     {
         // 验证数据
@@ -118,19 +121,20 @@ class OrderController extends Controller
             return back()->with('error','添加失败');
         }
     }
+    // 查看我的订单
     public function myorder()
     {
         $allods = Orders::where('users_id',session('home_user')->id)->get();
         unset($_SESSION['car']);
         return view('home.order.myorder',['allods'=>$allods]);
     }
-
+    // 加载评论页面
     public function speak($id)
     {
         $order = Orders::where('id',$id)->first();
         return view('home.order.speak',['order'=>$order]);
     }
-
+    // 执行评论的添加
     public function dospeak(Request $request,$id)
     {   if($request->hasFile('pic')){
             $file_path = $request->file('pic')->store(date('Ymd'));

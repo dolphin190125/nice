@@ -33,10 +33,12 @@
 							<div class="controls">
 							  	<select id="selectError3" name="cates_id">
 									@foreach($cates as $k=>$v)
-										@if($v->id == $cates_id)
-											<option value="{{$v->id}}" selected>{{$v->cates_name}}</option>
-										@else
-											<option value="{{$v->id}}">{{$v->cates_name}}</option>
+										@if(substr_count($v->path,',') == 2)
+											@if($v->id == $cates_id)
+												<option value="{{$v->id}}" selected>{{$v->cates_name}}</option>
+											@else
+												<option value="{{$v->id}}">{{$v->cates_name}}</option>
+											@endif
 										@endif
 									@endforeach
 							  	</select>
