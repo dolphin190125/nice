@@ -39,7 +39,7 @@ class LoginController extends Controller
 
         // 登录成功后  获取当前用户的权限
         $admin_user_nodes = DB::select('select n.aname,n.cname from nodes as n,roles_nodes as rn,adminusers_roles as ur where ur.user_id = '.$admin_user_data->id.' and ur.role_id = rn.role_id and rn.node_id = n.id');
-        // dd($admin_user_nodes);
+         // dd($admin_user_nodes);
         $temp = [];
         foreach($admin_user_nodes as $k=>$v){
             $temp[$v->cname][] = $v->aname;

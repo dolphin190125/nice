@@ -11,12 +11,21 @@ class RolesController extends Controller
     {
         return [
             'userscontroller' => '用户管理',
+            'usersinfoscontroller' => '查看用户详情',
             'brandscontroller' => '商品品牌管理',
             'bannerscontroller' => '轮播图管理',
             'catescontroller' => '商品分类管理',
             'goodscontroller' => '商品管理',
             'goodsinfoscontroller' => '商品详情管理',
             'friendslinkscontroller' => '友情链接管理',
+            'speakcontroller' => '评论管理',
+            'tagnamescontroller' => '标签云管理',
+            'adminuserscontroller' => '管理员管理',
+            'rolescontroller' => '角色管理',
+            'nodescontroller' => '权限管理',
+            'usersinfoscontroller' => '用户详情管理',
+            'ordermanagecontroller' => '订单管理',
+            'indexcontroller' => '后台首页',
            ];
     }
     /**
@@ -140,7 +149,7 @@ class RolesController extends Controller
     public function update(Request $request, $id)
     {
 
-        dump($request->all());
+        // dump($request->all());
         //
          // 开始事务
         DB::beginTransaction();

@@ -45,6 +45,6 @@ class LoginController extends Controller
     	session(['home_login'=>false]);
     	session(['home_user'=>null]);
 
-    	return back();
+    	return redirect('/home/index');
     }
 }

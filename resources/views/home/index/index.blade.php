@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,6 +34,8 @@
 </head>
 <body>  
 <!--Begin Header Begin-->
+
+
 <div class="soubg">
 	<div class="sou">
     	<!--Begin 所在收货地区 Begin-->
@@ -113,39 +114,13 @@
             </span>
         </span>
         <!--End 所在收货地区 End-->
-        <span class="fr">
-              <!-- 判断登录成功与否 -->
-            
-            @if(session('home_login'))
-        	<span class="fl">你好，
-                <a href="/home/login">{{ session('home_user')->uname }}</a>&nbsp; 
-                <a href="/home/login/logout">退出</a>
-               
-                <a href="#">我的订单</a> &nbsp;|
-                
-            </span>
-            @else
-            <span class="fl">你好，请 
-                <a href="/home/login">登录</a>&nbsp; 
-                
-                <a href="/home/register" style="color:#ff4e00;">免费注册</a>
-               
-            </span>
-            @endif
+       <span>
+            @include('home.layout.header')
+       </span>
 
-            @if(session('home_login'))
-        	<span class="ss">
-            	<div class="">
-                	<a href="/home/usersinfo/{{ session('home_user')->id }}"> &nbsp;个人中心</a>
-                </div>
-            </span>
-            @endif
-           
-            <span class="fl">|&nbsp;关注我们：</span>
-            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="/ho/images/s_tel.png" align="absmiddle" /></a></span>
-        </span>
-    </div>
+
+
+</div>
 </div>
 <div class="top">
     <div class="logo"><a href="/home/index"><img src="/ho/images/logo.png"/></a></div>
@@ -301,10 +276,10 @@
                                             <img src="/ho/images/hot.png" width="50" height="50" />
                                         </div>
                                         <div class="imgbg">
-                                        	<a href="#"><img src="/uploads/{{ $v->pic }}" width="160" height="136" /></a>
+                                        	<a href="/home/details/{{ $v->id }}"><img src="/uploads/{{ $v->pic }}" width="160" height="136" /></a>
                                         </div>                                        
                                         <div class="name">
-                                        	<a href="#">
+                                        	<a href="/home/details/{{$v->id}}">
                                             <h2>{{$v->title}}</h2>
                                             </a>
                                         </div>
@@ -328,7 +303,7 @@
     <div class="i_t mar_10">
         <span class="floor_num">1F</span>
         <span class="fl">热门 <b>·</b> 热卖</span>                
-        <span class="i_mores fr"><a href="#">进口咖啡</a>&nbsp; &nbsp; &nbsp; <a href="#">进口酒</a>&nbsp; &nbsp; &nbsp; <a href="#">进口母婴</a>&nbsp; &nbsp; &nbsp; <a href="#">新鲜蔬菜</a>&nbsp; &nbsp; &nbsp; <a href="#">新鲜水果</a></span>
+       
     </div>
     <div class="content">
         <div class="fresh_left">
@@ -360,11 +335,11 @@
                 @foreach($goods as $k=>$v)
                 @if($v->status == '2')
                 <li>
-                    <div class="name"><a href="#">{{$v->title}}</a></div>
+                    <div class="name"><a href="/home/details/{{$v->id}}">{{$v->title}}</a></div>
                     <div class="price">
                         <font>￥<span>{{$v->price}}.00</span></font>
                     </div>
-                    <div class="img"><a href="#"><img src="/uploads/{{ $v->pic }}" width="185" height="155" /></a></div>
+                    <div class="img"><a href="/home/details/{{ $v->id }}"><img src="/uploads/{{ $v->pic }}" width="185" height="155" /></a></div>
                 </li>
                 @endif
                 @endforeach
@@ -389,7 +364,7 @@
     <div class="i_t mar_10">
     	<span class="floor_num">2F</span>
     	<span class="fl">数码家电</span>                                
-        <span class="i_mores fr"><a href="#">手机</a>&nbsp; &nbsp; | &nbsp; &nbsp;<a href="#">苹果</a>&nbsp; &nbsp; | &nbsp; &nbsp;<a href="#">华为手机</a>&nbsp; &nbsp; | &nbsp; &nbsp;<a href="#">洗衣机</a>&nbsp; &nbsp; | &nbsp; &nbsp;<a href="#">数码配件</a></span>                                               
+                                                      
     </div>
     <div class="content">
     	<div class="tel_left">
@@ -410,7 +385,7 @@
             	<div class="fresh_txt_c">
                     @foreach($tagdatas as $k=>$v)
                     @if($v->status == 2)
-                	<a href="#">{{ $v->tag_name }}</a>
+                	<a href="/home/list?id={{$v->id}}">{{ $v->tag_name }}</a>
                     @endif
                     @endforeach
                 </div>
@@ -421,11 +396,11 @@
                 @foreach($goods as $k=>$v)
                 @if($v->status == '4')
             	<li>
-                	<div class="name"><a href="#">{{$v->title}}</a></div>
+                	<div class="name"><a href="/home/details/{{$v->id}}">{{$v->title}}</a></div>
                     <div class="price">
                     	<font>￥<span>{{ $v->price }}.00</span></font> &nbsp;
                     </div>
-                    <div class="img"><a href="#"><img src="/uploads/{{ $v->pic }}" width="185" height="155" /></a></div>
+                    <div class="img"><a href="/home/details/{{ $v->id }}"><img src="/uploads/{{ $v->pic }}" width="185" height="155" /></a></div>
                 </li>
                @endif
                @endforeach
@@ -454,10 +429,10 @@
                             <li class="featureBox">
                                 <div class="box">
                                     <div class="imgbg">
-                                        <a href="#"><img src="/uploads/{{ $v->pic }}" width="160" height="136" /></a>
+                                        <a href="/home/details/{{$v->id}}"><img src="/uploads/{{ $v->pic }}" width="160" height="136" /></a>
                                     </div>                                        
                                     <div class="name">
-                                        <a href="#">
+                                        <a href="/home/details/{{$v->id}}">
                                         
                                         {{$v->title}}
                                         </a>

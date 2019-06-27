@@ -35,131 +35,7 @@
 </head>
 <body>  
 <!--Begin Header Begin-->
-<div class="soubg">
-	<div class="sou">
-    	<!--Begin 所在收货地区 Begin-->
-    	<span class="s_city_b">
-        	<span class="fl">送货至：</span>
-            <span class="s_city">
-            	<span>四川</span>
-                <div class="s_city_bg">
-                	<div class="s_city_t"></div>
-                    <div class="s_city_c">
-                    	<h2>请选择所在的收货地区</h2>
-                        <table border="0" class="c_tab" style="width:235px; margin-top:10px;" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <th>A</th>
-                            <td class="c_h"><span>安徽</span><span>澳门</span></td>
-                          </tr>
-                          <tr>
-                            <th>B</th>
-                            <td class="c_h"><span>北京</span></td>
-                          </tr>
-                          <tr>
-                            <th>C</th>
-                            <td class="c_h"><span>重庆</span></td>
-                          </tr>
-                          <tr>
-                            <th>F</th>
-                            <td class="c_h"><span>福建</span></td>
-                          </tr>
-                          <tr>
-                            <th>G</th>
-                            <td class="c_h"><span>广东</span><span>广西</span><span>贵州</span><span>甘肃</span></td>
-                          </tr>
-                          <tr>
-                            <th>H</th>
-                            <td class="c_h"><span>河北</span><span>河南</span><span>黑龙江</span><span>海南</span><span>湖北</span><span>湖南</span></td>
-                          </tr>
-                          <tr>
-                            <th>J</th>
-                            <td class="c_h"><span>江苏</span><span>吉林</span><span>江西</span></td>
-                          </tr>
-                          <tr>
-                            <th>L</th>
-                            <td class="c_h"><span>辽宁</span></td>
-                          </tr>
-                          <tr>
-                            <th>N</th>
-                            <td class="c_h"><span>内蒙古</span><span>宁夏</span></td>
-                          </tr>
-                          <tr>
-                            <th>Q</th>
-                            <td class="c_h"><span>青海</span></td>
-                          </tr>
-                          <tr>
-                            <th>S</th>
-                            <td class="c_h"><span>上海</span><span>山东</span><span>山西</span><span class="c_check">四川</span><span>陕西</span></td>
-                          </tr>
-                          <tr>
-                            <th>T</th>
-                            <td class="c_h"><span>台湾</span><span>天津</span></td>
-                          </tr>
-                          <tr>
-                            <th>X</th>
-                            <td class="c_h"><span>西藏</span><span>香港</span><span>新疆</span></td>
-                          </tr>
-                          <tr>
-                            <th>Y</th>
-                            <td class="c_h"><span>云南</span></td>
-                          </tr>
-                          <tr>
-                            <th>Z</th>
-                            <td class="c_h"><span>浙江</span></td>
-                          </tr>
-                        </table>
-                    </div>
-                </div>
-            </span>
-        </span>
-        <!--End 所在收货地区 End-->
-        <span class="fr">
-        	<span class="fl">你好，请<a href="Login.html">登录</a>&nbsp; <a href="Regist.html" style="color:#ff4e00;">免费注册</a>&nbsp;|&nbsp;<a href="#">我的订单</a>&nbsp;|</span>
-        	<span class="ss">
-            	<div class="ss_list">
-                	<a href="#">收藏夹</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">我的收藏夹</a></li>
-                                <li><a href="#">我的收藏夹</a></li>
-                            </ul>
-                        </div>
-                    </div>     
-                </div>
-                <div class="ss_list">
-                	<a href="#">客户服务</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                                <li><a href="#">客户服务</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-                <div class="ss_list">
-                	<a href="#">网站导航</a>
-                    <div class="ss_list_bg">
-                    	<div class="s_city_t"></div>
-                        <div class="ss_list_c">
-                        	<ul>
-                            	<li><a href="#">网站导航</a></li>
-                                <li><a href="#">网站导航</a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-            </span>
-            <span class="fl">|&nbsp;关注我们：</span>
-            <span class="s_sh"><a href="#" class="sh1">新浪</a><a href="#" class="sh2">微信</a></span>
-            <span class="fr">|&nbsp;<a href="#">手机版&nbsp;<img src="/ho/images/s_tel.png" align="absmiddle" /></a></span>
-        </span>
-    </div>
-</div>
+@include('home.layout.header')
 <div class="top">
     <div class="logo"><a href="/home/index"><img src="/ho/images/logo.png" /></a></div>
     <div class="search">
@@ -220,7 +96,7 @@
             <li><a href="Digital.html">数码</a></li>
             <li><a href="GroupBuying.html">团购</a></li>
         </ul>
-        <div class="m_ad">中秋送好礼！</div>
+        
     </div>
 </div>
 <!--End Menu End--> 
@@ -295,10 +171,7 @@
         
 
 
-        <div class="s_brand">
-        	<div class="s_brand_img"><img src="/ho/images/sbrand.jpg" width="188" height="132" /></div>
-            <div class="s_brand_c"><a href="#">进入品牌专区</a></div>
-        </div>    
+        
         
         
     </div>
@@ -306,84 +179,22 @@
     	<div class="l_history">
         	<div class="fav_t">用户还喜欢</div>
         	<ul>
+                
+                @foreach($gooddata as $k=>$v)
+                @if($v->status == 4)
             	<li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_1.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                    <div class="img"><a href="/home/details/{{ $v->id }}"><img src="/uploads/{{ $v->pic }}" width="185" height="162" /></a></div>
+                	<div class="name"><a href="/home/details/{{ $v->id }}">{{ $v->title }}</a></div>
                     <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
+                    	<font>￥<span>{{ $v->price }}.00</span></font> &nbsp;
                     </div>
                 </li>
-                <li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_2.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>768.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_3.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>680.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_4.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_5.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
+                @endif
+               @endforeach
         	</ul>
         </div>
         <div class="l_list">        	
-            <div class="des_border">
-            	<div class="des_tit">
-                	<ul>
-                    	<li class="current">推荐搭配</li>
-                    </ul>
-                </div>
-                <div class="team_list">
-                	<div class="img"><a href="#"><img src="/ho/images/mat_1.jpg" width="160" height="140" /></a></div>
-                	<div class="name"><a href="#">倩碧补水组合套装8折促销</a></div>
-                    <div class="price">
-                    	<div class="checkbox"><input type="checkbox" name="zuhe" checked="checked" /></div>
-                    	<font>￥<span>768.00</span></font> &nbsp; 18R
-                    </div>
-                </div>
-                <div class="team_icon"><img src="/ho/images/jia_b.gif" /></div>
-                <div class="team_list">
-                	<div class="img"><a href="#"><img src="/ho/images/mat_2.jpg" width="160" height="140" /></a></div>
-                	<div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
-                    <div class="price">
-                    	<div class="checkbox"><input type="checkbox" name="zuhe" /></div>
-                    	<font>￥<span>749.00</span></font> &nbsp; 18R
-                    </div>
-                </div>
-                <div class="team_icon"><img src="/ho/images/jia_b.gif" /></div>
-                <div class="team_list">
-                	<div class="img"><a href="#"><img src="/ho/images/mat_3.jpg" width="160" height="140" /></a></div>
-                	<div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
-                    <div class="price">
-                    	<div class="checkbox"><input type="checkbox" name="zuhe" checked="checked" /></div>
-                    	<font>￥<span>749.00</span></font> &nbsp; 18R
-                    </div>
-                </div>
-                <div class="team_icon"><img src="/ho/images/equl.gif" /></div>
-                <div class="team_sum">
-                	套餐价：￥<span>1517</span><br />
-                    <input type="text" value="1" class="sum_ipt" /><br />
-                    <a href="#"><img src="/ho/images/z_buy.gif" /></a> 
-                </div>
-                
-            </div>
+     
             <div class="des_border">
                 <div class="des_tit">
                 	<ul>
@@ -396,23 +207,18 @@
                 	
                 	<table border="0" align="center" style="width:100%; font-family:'宋体'; margin:10px auto;" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td>商品名称：迪奥香水</td>
+                        <td>商品名称：{{$goods->title}}</td>
                         <td>商品编号：1546211</td>
-                        <td>品牌： 迪奥（Dior）</td>
-                        <td>上架时间：2015-09-06 09:19:09 </td>
+                        <td>品牌： {{ $goods->goodsbrands->bname }} </td>
+                        <td>上架时间：{{ $goods->created_at }} </td>
                       </tr>
-                      <tr>
-                        <td>商品毛重：160.00g</td>
-                        <td>商品产地：法国</td>
-                        <td>香调：果香调香型：淡香水/香露EDT</td>
-                        <td>&nbsp;</td>
-                      </tr>
-                      <tr>
+                      
+                      <!-- <tr>
                         <td>容量：1ml-15ml </td>
                         <td>类型：女士香水，Q版香水，组合套装</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
-                      </tr>
+                      </tr> -->
                     </table>                                               
                                             
                         
@@ -429,7 +235,7 @@
                         	<b>{{$goods->title}}</b><br />
                             【商品规格】：{{$goodsinfos->capa}}<br />
                             【商品质地】：液体<br />
-                            【商品日期】：与专柜同步更新<br />
+                            【商品日期】：{{$goods->created_at}}<br />
                             【商品产地】：法国<br />
                             【商品包装】：无外盒 无塑封<br />
                             【商品香调】：{{$goodsinfos->taste}}<br />
@@ -449,86 +255,40 @@
             
             <div class="des_border" id="p_comment">
             	<div class="des_t">商品评论</div>
-                
-                <table border="0" class="jud_tab" cellspacing="0" cellpadding="0">
-                  <tr>
-                    <td width="175" class="jud_per">
-                    	<p>80.0%</p>好评度
-                    </td>
-                    <td width="300">
-                    	<table border="0" style="width:100%;" cellspacing="0" cellpadding="0">
-                          <tr>
-                            <td width="90">好评<font color="#999999">（80%）</font></td>
-                            <td><img src="/ho/images/pl.gif" align="absmiddle" /></td>
-                          </tr>
-                          <tr>
-                            <td>中评<font color="#999999">（20%）</font></td>
-                            <td><img src="/ho/images/pl.gif" align="absmiddle" /></td>
-                          </tr>
-                          <tr>
-                            <td>差评<font color="#999999">（0%）</font></td>
-                            <td><img src="/ho/images/pl.gif" align="absmiddle" /></td>
-                          </tr>
-                        </table>
-                    </td>
-                    <td width="185" class="jud_bg">
-                    	购买过雅诗兰黛第六代特润精华露50ml的顾客，在收到商品才可以对该商品发表评论
-                    </td>
-                    <td class="jud_bg">您可对已购买商品进行评价<br /><a href="#"><img src="/ho/images/btn_jud.gif" /></a></td>
-                  </tr>
-                </table>		
+		
                 <table border="0" class="jud_list" style="width:100%; margin-top:30px;" cellspacing="0" cellpadding="0">
+                @if(!empty($speak))
+                @foreach($speak as $k=>$v)
                   <tr valign="top">
-                    <td width="160"><img src="/ho/images/peo1.jpg" width="20" height="20" align="absmiddle" />&nbsp;向死而生</td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
+                    <td width="160"><img src="/uploads/{{$v->speaks_users->userinfo->profile}}" width="20" height="20" align="absmiddle" />&nbsp;{{$v->speaks_users->uname}}</td>
+                    <td>
+                        @if($v->start == 0)
+                            ★
+                        @elseif($v->start == 1)
+                            ★★
+                        @elseif($v->start == 2)
+                            ★★★
+                        @elseif($v->start == 3)
+                            ★★★★
+                        @elseif($v->start == 4)
+                            ★★★★★
+                        @endif
                     </td>
                     <td>
-                    	产品很好，香味很喜欢，必须给赞。 <br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="/ho/images/peo2.jpg" width="20" height="20" align="absmiddle" />&nbsp;就是这么想的</td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
+                       <img src="/uploads/{{$v->picture}}" style="width:50px;">
                     </td>
                     <td>
-                    	送朋友，她很喜欢，大爱。 <br />
-                        <font color="#999999">2015-09-24</font>
+                    	{{$v->speak}} <br />
+                        <font color="#999999">{{$v->created_at}}</font>
                     </td>
                   </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="/ho/images/peo3.jpg" width="20" height="20" align="absmiddle" />&nbsp;墨镜墨镜</td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                    	大家都说不错<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
-                  <tr valign="top">
-                    <td width="160"><img src="/ho/images/peo4.jpg" width="20" height="20" align="absmiddle" />&nbsp;那*****洋 <br /><font color="#999999">（匿名用户）</font></td>
-                    <td width="180">
-                    	颜色分类：<font color="#999999">粉色</font> <br />
-                        型号：<font color="#999999">50ml</font>
-                    </td>
-                    <td>
-                    	下次还会来买，推荐。<br />
-                        <font color="#999999">2015-09-24</font>
-                    </td>
-                  </tr>
+                  @endforeach
+                @endif
                 </table>
 
                 	
                     
-                <div class="pages">
-                    <a href="#" class="p_pre">上一页</a><a href="#" class="cur">1</a><a href="#">2</a><a href="#">3</a>...<a href="#">20</a><a href="#" class="p_pre">下一页</a>
-                </div>
+               
                 
           	</div>
             
