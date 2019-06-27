@@ -23,11 +23,16 @@ class DetailsController extends Controller
         $speak = Speaks::where('goods_id',$id)->get();
         // 拿到本商品的商品详情
         $goodsinfos = Goodsinfos::where('goods_id',$goods->id)->first();
+        $gooddata = Goods::all();
+        // foreach($gooddata as $k=>$v){
+        //     $value = $v->status;
+        // }
+
         // 如果没有详情,就返回
         if(empty($goodsinfos)){
             return back();
         }
-        return view('home.details.index',['goods'=>$goods,'goodsinfos'=>$goodsinfos,'countCar'=>$countCar,'speak'=>$speak]);
+        return view('home.details.index',['goods'=>$goods,'goodsinfos'=>$goodsinfos,'countCar'=>$countCar,'speak'=>$speak,'gooddata'=>$gooddata]);
     }
 
 

@@ -31,7 +31,7 @@ Route::post('admin/doprofile/{id}','Admin\LoginController@doprofile');
 Route::get('admin/rbac',function(){
 	return view('admin.rbac');
 });
-Route::group(['middleware'=>['login']],function(){
+Route::group(['middleware'=>['login','nodes']],function(){
 // 后台首页路由
 Route::get('admin','Admin\IndexController@index');
 

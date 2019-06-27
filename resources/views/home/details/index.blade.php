@@ -96,7 +96,7 @@
             <li><a href="Digital.html">数码</a></li>
             <li><a href="GroupBuying.html">团购</a></li>
         </ul>
-        <div class="m_ad">中秋送好礼！</div>
+        
     </div>
 </div>
 <!--End Menu End--> 
@@ -171,10 +171,7 @@
         
 
 
-        <div class="s_brand">
-        	<div class="s_brand_img"><img src="/ho/images/sbrand.jpg" width="188" height="132" /></div>
-            <div class="s_brand_c"><a href="#">进入品牌专区</a></div>
-        </div>    
+        
         
         
     </div>
@@ -182,84 +179,22 @@
     	<div class="l_history">
         	<div class="fav_t">用户还喜欢</div>
         	<ul>
+                
+                @foreach($gooddata as $k=>$v)
+                @if($v->status == 4)
             	<li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_1.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
+                    <div class="img"><a href="/home/details/{{ $v->id }}"><img src="/uploads/{{ $v->pic }}" width="185" height="162" /></a></div>
+                	<div class="name"><a href="/home/details/{{ $v->id }}">{{ $v->title }}</a></div>
                     <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
+                    	<font>￥<span>{{ $v->price }}.00</span></font> &nbsp;
                     </div>
                 </li>
-                <li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_2.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>768.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_3.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>680.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_4.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
-                <li>
-                    <div class="img"><a href="#"><img src="/ho/images/his_5.jpg" width="185" height="162" /></a></div>
-                	<div class="name"><a href="#">Dior/迪奥香水2件套装</a></div>
-                    <div class="price">
-                    	<font>￥<span>368.00</span></font> &nbsp; 18R
-                    </div>
-                </li>
+                @endif
+               @endforeach
         	</ul>
         </div>
         <div class="l_list">        	
-            <div class="des_border">
-            	<div class="des_tit">
-                	<ul>
-                    	<li class="current">推荐搭配</li>
-                    </ul>
-                </div>
-                <div class="team_list">
-                	<div class="img"><a href="#"><img src="/ho/images/mat_1.jpg" width="160" height="140" /></a></div>
-                	<div class="name"><a href="#">倩碧补水组合套装8折促销</a></div>
-                    <div class="price">
-                    	<div class="checkbox"><input type="checkbox" name="zuhe" checked="checked" /></div>
-                    	<font>￥<span>768.00</span></font> &nbsp; 18R
-                    </div>
-                </div>
-                <div class="team_icon"><img src="/ho/images/jia_b.gif" /></div>
-                <div class="team_list">
-                	<div class="img"><a href="#"><img src="/ho/images/mat_2.jpg" width="160" height="140" /></a></div>
-                	<div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
-                    <div class="price">
-                    	<div class="checkbox"><input type="checkbox" name="zuhe" /></div>
-                    	<font>￥<span>749.00</span></font> &nbsp; 18R
-                    </div>
-                </div>
-                <div class="team_icon"><img src="/ho/images/jia_b.gif" /></div>
-                <div class="team_list">
-                	<div class="img"><a href="#"><img src="/ho/images/mat_3.jpg" width="160" height="140" /></a></div>
-                	<div class="name"><a href="#">香奈儿邂逅清新淡香水50ml</a></div>
-                    <div class="price">
-                    	<div class="checkbox"><input type="checkbox" name="zuhe" checked="checked" /></div>
-                    	<font>￥<span>749.00</span></font> &nbsp; 18R
-                    </div>
-                </div>
-                <div class="team_icon"><img src="/ho/images/equl.gif" /></div>
-                <div class="team_sum">
-                	套餐价：￥<span>1517</span><br />
-                    <input type="text" value="1" class="sum_ipt" /><br />
-                    <a href="#"><img src="/ho/images/z_buy.gif" /></a> 
-                </div>
-                
-            </div>
+     
             <div class="des_border">
                 <div class="des_tit">
                 	<ul>
@@ -272,23 +207,18 @@
                 	
                 	<table border="0" align="center" style="width:100%; font-family:'宋体'; margin:10px auto;" cellspacing="0" cellpadding="0">
                       <tr>
-                        <td>商品名称：迪奥香水</td>
+                        <td>商品名称：{{$goods->title}}</td>
                         <td>商品编号：1546211</td>
-                        <td>品牌： 迪奥（Dior）</td>
-                        <td>上架时间：2015-09-06 09:19:09 </td>
+                        <td>品牌： {{ $goods->goodsbrands->bname }} </td>
+                        <td>上架时间：{{ $goods->created_at }} </td>
                       </tr>
-                      <tr>
-                        <td>商品毛重：160.00g</td>
-                        <td>商品产地：法国</td>
-                        <td>香调：果香调香型：淡香水/香露EDT</td>
-                        <td>&nbsp;</td>
-                      </tr>
-                      <tr>
+                      
+                      <!-- <tr>
                         <td>容量：1ml-15ml </td>
                         <td>类型：女士香水，Q版香水，组合套装</td>
                         <td>&nbsp;</td>
                         <td>&nbsp;</td>
-                      </tr>
+                      </tr> -->
                     </table>                                               
                                             
                         
@@ -305,7 +235,7 @@
                         	<b>{{$goods->title}}</b><br />
                             【商品规格】：{{$goodsinfos->capa}}<br />
                             【商品质地】：液体<br />
-                            【商品日期】：与专柜同步更新<br />
+                            【商品日期】：{{$goods->created_at}}<br />
                             【商品产地】：法国<br />
                             【商品包装】：无外盒 无塑封<br />
                             【商品香调】：{{$goodsinfos->taste}}<br />
@@ -358,9 +288,7 @@
 
                 	
                     
-                <div class="pages">
-                    <a href="#" class="p_pre">上一页</a><a href="#" class="cur">1</a><a href="#">2</a><a href="#">3</a>...<a href="#">20</a><a href="#" class="p_pre">下一页</a>
-                </div>
+               
                 
           	</div>
             

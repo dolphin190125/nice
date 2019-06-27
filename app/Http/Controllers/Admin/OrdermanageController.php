@@ -15,7 +15,7 @@ class OrdermanageController extends Controller
         // 显示 品牌列表页面
         return view('admin.ordermanage.index',['orders'=>$orders,'params'=>$request->all()]);
     }
-
+    // 查看订单详情
     public function info($id)
     {
         // 根据条件查询
@@ -36,6 +36,8 @@ class OrdermanageController extends Controller
             return back()->with('error','添加失败');
         }
     } 
+
+    // 取消订单
     public function cancel($id)
     {
         $order = Orders::where('id',$id)->first();
@@ -47,6 +49,8 @@ class OrdermanageController extends Controller
             return back()->with('error','添加失败');
         }
     }  
+
+    // 申请取消订单
     public function apply($id)
     {
         $order = Orders::where('id',$id)->first();
@@ -58,7 +62,7 @@ class OrdermanageController extends Controller
             return back();
         }
     }
-      
+    // 确认收货
     public function confirm($id)
     {
         $order = Orders::where('id',$id)->first();

@@ -13,6 +13,9 @@ class Goods extends Model
     {
     	return $this->hasOne('App\Models\GoodsInfos','goods_id');
     }
-    // 配置 根据商品找商品评论
-    
+    // 配置 根据商品找商品品牌
+     public function goodsbrands()
+    {
+    	return $this->belongsTo('App\Models\Brands','brands_id');
+    }
 }

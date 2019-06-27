@@ -26,7 +26,7 @@ class UsersController extends Controller
 
 
         // 获取表中全部数据  进行遍历 得到用户列表页面
-       $users = Users::where('uname','like','%'.$search_uname.'%')->where('email','like','%'.$search_email.'%')->paginate(2);
+       $users = Users::where('uname','like','%'.$search_uname.'%')->where('email','like','%'.$search_email.'%')->paginate(6);
 
 
         // 显示 用户列表页面

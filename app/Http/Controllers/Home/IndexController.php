@@ -7,6 +7,7 @@ use App\Models\Cates;
 use App\Models\Goods;
 use App\Models\Banners;
 use App\Models\Tagnames;
+use App\Models\Brands;
 use App\Http\Controllers\Home\CarController;
 class IndexController extends Controller
 {
