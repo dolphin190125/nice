@@ -97,12 +97,12 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-<<<<<<< HEAD
+
         $cates = Cates::all();
         
-=======
+
         // 找到需要修改的数据
->>>>>>> origin/wwx
+
         $brand = Brands::find($id);
         $cate = Cates::find($brand->cates_id);
         $cates_id=$cate->id;

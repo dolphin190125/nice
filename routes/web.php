@@ -160,42 +160,41 @@ Route::get('home/address/destroy/{id}','Home\AddressController@destroy');
 
 
 
+Route::group(['middleware'=>'nodes'],function(){
+	// 后台分类的路由
+	Route::resource('admin/cates','Admin\CatesController');
+	Route::get('admin/show/sta/{id}','Admin\ShowController@sta');
+	Route::get('admin/show/desta/{id}','Admin\ShowController@desta');
+	// 后台商品的路由
+	Route::resource('admin/goods','Admin\GoodsController');
+	// 后台商品详情添加
+	Route::get('admin/goodsinfos/create/{id}','Admin\GoodsinfosController@create');
+	// 后台商品详情执行添加
+	Route::post('admin/goodsinfos/store/{id}','Admin\GoodsinfosController@store');
+	// 后台商品详情的列表页
+	Route::get('admin/goodsinfos/index/{id}','Admin\GoodsinfosController@index');
+	// 后台商品详情的修改页面
+	Route::get('admin/goodsinfos/edit/{id}','Admin\GoodsinfosController@edit');
+	// 后台商品详情的执行修改
+	Route::post('admin/goodsinfos/update/{id}','Admin\GoodsinfosController@update');
+	// 后台商品详情的删除
+	Route::post('admin/goodsinfos/destroy/{id}','Admin\GoodsinfosController@destroy');
+	// 后台订单页
+	Route::get('admin/ordermanage/index','Admin\OrdermanageController@index');
+	// 后台订单详情页
+	Route::get('admin/ordermanage/info/{id}','Admin\OrdermanageController@info');
+	// 后台订单发货
+	Route::get('admin/ordermanage/send/{id}','Admin\OrdermanageController@send');
+	// 后台订单取消订单
+	Route::get('admin/ordermanage/cancel/{id}','Admin\OrdermanageController@cancel');
+	// 申请取消订单方法
+	Route::get('admin/ordermanage/apply/{id}','Admin\OrdermanageController@apply');
+	// 确认收货
+	Route::get('admin/ordermanage/confirm/{id}','Admin\OrdermanageController@confirm');
+	// 后台查看评论
+	Route::get('admin/speak/index','Admin\SpeakController@index');
 
-// 后台分类的路由
-Route::resource('admin/cates','Admin\CatesController');
-Route::get('admin/show/sta/{id}','Admin\ShowController@sta');
-Route::get('admin/show/desta/{id}','Admin\ShowController@desta');
-// 后台商品的路由
-Route::resource('admin/goods','Admin\GoodsController');
-// 后台商品详情添加
-Route::get('admin/goodsinfos/create/{id}','Admin\GoodsinfosController@create');
-// 后台商品详情执行添加
-Route::post('admin/goodsinfos/store/{id}','Admin\GoodsinfosController@store');
-// 后台商品详情的列表页
-Route::get('admin/goodsinfos/index/{id}','Admin\GoodsinfosController@index');
-// 后台商品详情的修改页面
-Route::get('admin/goodsinfos/edit/{id}','Admin\GoodsinfosController@edit');
-// 后台商品详情的执行修改
-Route::post('admin/goodsinfos/update/{id}','Admin\GoodsinfosController@update');
-// 后台商品详情的删除
-Route::post('admin/goodsinfos/destroy/{id}','Admin\GoodsinfosController@destroy');
-// 后台订单页
-Route::get('admin/ordermanage/index','Admin\OrdermanageController@index');
-// 后台订单详情页
-Route::get('admin/ordermanage/info/{id}','Admin\OrdermanageController@info');
-// 后台订单发货
-Route::get('admin/ordermanage/send/{id}','Admin\OrdermanageController@send');
-// 后台订单取消订单
-Route::get('admin/ordermanage/cancel/{id}','Admin\OrdermanageController@cancel');
-// 申请取消订单方法
-Route::get('admin/ordermanage/apply/{id}','Admin\OrdermanageController@apply');
-// 确认收货
-Route::get('admin/ordermanage/confirm/{id}','Admin\OrdermanageController@confirm');
-// 后台查看评论
-Route::get('admin/speak/index','Admin\SpeakController@index');
-
-
-
+});
 
 
 
