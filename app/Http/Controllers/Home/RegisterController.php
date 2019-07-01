@@ -61,7 +61,7 @@ class RegisterController extends Controller
             $res = $user->save();
             if($res){
                 // send 模板的名字 模板里几个参数 
-                 Mail::send('home.register.mail', ['id' => $user->id,'token'=>$token], function ($m) use ($email) {
+                 Mail::send('home.register.mail', ['id' => $user->id,'token'=>$token], function ($m) use ($email){
                
                 // to 发送到的地址 subject 邮件标题
                 $s = $m->to($email)->subject('【奈斯商城】 提醒邮件');
@@ -75,7 +75,7 @@ class RegisterController extends Controller
                 echo "<script>alert('注册失败');location.href='/home/register'</script>";
             }
             if($this->status == 1){
-               return view('home.register.mail',['id' => $user->id,'token'=>$token]);  
+               return view('home.register.mail',['id' => $user->id,'token' => $token]);  
             }
         }else{
             echo "<script>alert('用户已存在');location.href='/home/register'</script>";
