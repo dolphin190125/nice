@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Goods;
 use App\Models\Goodsinfos;
 use App\Models\Cars;
+use App\Models\FriendsLinks;
 class CarController extends Controller
 {
     // 加入购物车
@@ -110,7 +111,8 @@ class CarController extends Controller
         }
         // 拿到总价格
         $jiage = self::priceCount();
-        return view('home.car.index',['cars_all'=>$cars_all,'jiage'=>$jiage]);
+        $friends = FriendsLinks::where('status',1)->get();
+        return view('home.car.index',['cars_all'=>$cars_all,'jiage'=>$jiage,'friends'=>$friends]);
     }
 
     // 添加数量

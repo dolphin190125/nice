@@ -39,24 +39,22 @@
             	<div class="left_m_t t_bg1">订单中心</div>
                 <ul>
                 	<li><a href="/home/order/myorder">我的订单</a></li>
-                    <li><a href="/home/speak/index">我的评价</a></li>
+                    
                     <li><a href="/home/address/selectaddress/{{ session('home_user')->id }}">收货地址</a></li>
                 </ul>
             </div>
             <div class="left_m">
             	<div class="left_m_t t_bg2">个人中心</div>
                 <ul>
-                	<li><a href="/home/usersinfo/{{ session('home_user')->id }}" class="now">用户信息</a></li>
-                    <li><a href="">我的收藏</a></li>
-                    <li><a href="">我的评论</a></li>
+                	<li><a href="/home/usersinfo/{{ session('home_user')->id }}">用户信息</a></li>
+                    <li><a href="/home/speak/index">我的评价</a></li>
                 </ul>
             </div>
             <div class="left_m">
             	<div class="left_m_t t_bg3">账户中心</div>
                 <ul>
-                	<li><a href="/home/safe/{{ session('home_user')->id }}" class="now">账户安全</a></li>
-                    <li><a href="">我的红包</a></li>
-                    <li><a href="">资金管理</a></li>
+                	<li><a href="/home/safe/{{ session('home_user')->id }}">账户安全</a></li>
+                    
                 </ul> 
             </div>
           
@@ -101,6 +99,12 @@
         </div>
     </div>
     <div class="b_nav">
+        <dl>
+            <dt><a href="#">友情链接</a></dt>
+            @foreach($friends as $ks=>$vs)
+            <dd><a href="{{$vs->url}}">{{$vs->fname}}</a></dd>
+            @endforeach
+        </dl>
     	<dl>                                                                                            
         	<dt><a href="#">新手上路</a></dt>
             <dd><a href="#">售后流程</a></dd>
