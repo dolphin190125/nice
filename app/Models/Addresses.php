@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Addresses extends Model
 {
     public $table = 'addresses';
+    
 }

@@ -85,7 +85,7 @@
             <li><a href="Digital.html">数码</a></li>
             <li><a href="GroupBuying.html">团购</a></li>
         </ul>
-        <div class="m_ad">中秋送好礼！</div>
+     
     </div>
 </div>
 <div class="content mar_20">

@@ -70,8 +70,8 @@ class LoginController extends Controller
     {
     	session(['admin_login'=>false]);
     	session(['admin_user'=>null]);
+    	return redirect('/admin/login');
 
-    	return view('admin.login.login');
     }
 
     // 修改头像页面

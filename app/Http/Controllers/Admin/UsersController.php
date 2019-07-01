@@ -24,11 +24,8 @@ class UsersController extends Controller
         $search_uname = $request->input('search_uname','');
         $search_email = $request->input('search_email','');
 
-
         // 获取表中全部数据  进行遍历 得到用户列表页面
        $users = Users::where('uname','like','%'.$search_uname.'%')->where('email','like','%'.$search_email.'%')->paginate(6);
-
-
         // 显示 用户列表页面
         return view('admin.user.index',['users'=>$users,'params'=>$request->all()]);
     }
