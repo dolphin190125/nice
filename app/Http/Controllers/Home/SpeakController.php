@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Speaks;
+use App\Models\FriendsLinks;
 class SpeakController extends Controller
 {
     // 查看我的评论
@@ -12,8 +13,8 @@ class SpeakController extends Controller
     {
     	// 拿到登录的这个人的所有评论
     	$speaks = Speaks::where('users_id',session('home_user')->id)->get();
-    	
-    	return view('home.speak.index',['speaks'=>$speaks]);
+    	$friends = FriendsLinks::where('status',1)->get();
+    	return view('home.speak.index',['speaks'=>$speaks,'friends'=>$friends]);
     }
     // 删除评论
     public function delete(Request $request)

@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Users;
+use App\Models\FriendsLinks;
 use Hash;
 class SafeController extends Controller
 {
 	public function index($id)
 	{
 
+		$friends = FriendsLinks::where('status',1)->get();
 		// 加载 修改密码 页面
-		return view('home.usersinfo.safe.index');
+		return view('home.usersinfo.safe.index',['friends'=>$friends]);
 		
 	}
 	

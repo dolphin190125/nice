@@ -9,6 +9,7 @@ use App\Models\Goodsinfos;
 use App\Models\Addresses;
 use App\Models\Cars;
 use App\Models\Orders;
+use App\Models\FriendsLinks;
 use App\Models\Speaks;
 use App\Http\Controllers\Home\CarController;
 class OrderController extends Controller
@@ -16,7 +17,8 @@ class OrderController extends Controller
     // 加载添加地址的页面
     public function create()
     {
-        return view('home.order.create');
+        $friends = FriendsLinks::where('status',1)->get();
+        return view('home.order.create',['friends'=>$friends]);
     }
     // 把数据添加到订单表
     public function index(Request $request)
@@ -30,7 +32,9 @@ class OrderController extends Controller
         $id = $data['ad'];
         $pay = $data['pay'];
         $adds = Addresses::where('id',$id)->first();
+
         $list = $_SESSION['car'];
+
         // 添加订单表
         foreach($list as $k=>$v){
             $orders = new Orders;
@@ -46,6 +50,9 @@ class OrderController extends Controller
             $orders->pay = $pay;
             $orders->save();
         }
+
+        
+        // dd($friends);
         // 引用生成订单的方法
         return redirect('home/order/myods');
     } 
@@ -62,8 +69,9 @@ class OrderController extends Controller
         foreach($ods as $k=>$v){
             $zong += $v->price;
         }
+        $friends = FriendsLinks::where('status',1)->get();
         //加载生成订单的页面
-        return view('home.order.index',['ods'=>$ods,'zong'=>$zong]);
+        return view('home.order.index',['ods'=>$ods,'zong'=>$zong,'friends'=>$friends]);
     }
 	// 结算页面
     public function account(Request $request)
@@ -95,9 +103,9 @@ class OrderController extends Controller
         }
         // 拿到本商品的收货地址
         $address = Addresses::where('users_id',session('home_user')->id)->get();
-        
+        $friends = FriendsLinks::where('status',1)->get();
         // dd($cars_all);
-        return view('home.order.account',['cars_all'=>$cars_all,'jiage'=>$jiage,'address'=>$address]);
+        return view('home.order.account',['cars_all'=>$cars_all,'jiage'=>$jiage,'address'=>$address,'friends'=>$friends]);
     }
     // 执行添加地址的方法
     public function add(Request $request)
@@ -133,8 +141,10 @@ class OrderController extends Controller
     public function myorder()
     {
         $allods = Orders::where('users_id',session('home_user')->id)->get();
+
         unset($_SESSION['car']);
-        return view('home.order.myorder',['allods'=>$allods]);
+        $friends = FriendsLinks::where('status',1)->get();
+        return view('home.order.myorder',['allods'=>$allods,'friends'=>$friends]);
     }
     // 加载评论页面
     public function speak($id)

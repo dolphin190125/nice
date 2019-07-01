@@ -165,6 +165,12 @@
         </div>
     </div>
     <div class="b_nav">
+        <dl>
+            <dt><a href="#">友情链接</a></dt>
+            @foreach($friends as $ks=>$vs)
+            <dd><a href="{{$vs->url}}">{{$vs->fname}}</a></dd>
+            @endforeach
+        </dl>
     	<dl>                                                                                            
         	<dt><a href="#">新手上路</a></dt>
             <dd><a href="#">售后流程</a></dd>

@@ -8,6 +8,7 @@ use App\Models\Cates;
 use App\Models\Goods;
 use App\Models\Brands;
 use App\Models\Goodsinfos;
+use App\Models\FriendsLinks;
 use DB;
 use App\Http\Controllers\Home\CarController;
 class ListController extends Controller
@@ -80,8 +81,8 @@ class ListController extends Controller
         }
         // 获取所有的轮播图
         $brands = Brands::all();
-        
-        return view('home.list.index',['brands'=>$brands,'goods'=>$goods,'countCar'=>$countCar,'pgood'=>$pgood,'id'=>$id]);
+        $friends = FriendsLinks::where('status',1)->get();
+        return view('home.list.index',['brands'=>$brands,'goods'=>$goods,'countCar'=>$countCar,'pgood'=>$pgood,'id'=>$id,'friends'=>$friends]);
     }
 
     public function word($text)

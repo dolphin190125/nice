@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Addresses;
+use App\Models\FriendsLinks;
 class AddressController extends Controller
 {
     //
@@ -13,8 +14,9 @@ class AddressController extends Controller
     {
         // 通过用户id 得到用户的所有收货地址 
         $addresses_data = Addresses::where('users_id',$id)->get();
+        $friends = FriendsLinks::where('status',1)->get();
         // 加载收货地址页面 将查询到的用户所有收货地址分配到页面中
-        return view('home.usersinfo.address.index',['addresses_data'=>$addresses_data]);
+        return view('home.usersinfo.address.index',['addresses_data'=>$addresses_data,'friends'=>$friends]);
     }
 
     // 显示修改收货地址页面
@@ -22,8 +24,9 @@ class AddressController extends Controller
     {
         // 通过收货地址id 查询到需要修改的一条数据
         $address_user = Addresses::where('id',$id)->first();
+        $friends = FriendsLinks::where('status',1)->get();
         // 加载修改收货地址页面 将数据分配到页面中
-        return view('home.usersinfo.address.edit',['address_user'=>$address_user]);
+        return view('home.usersinfo.address.edit',['address_user'=>$address_user,'friends'=>$friends]);
     }
     // 处理修改操作
     public function doaddress(Request $request,$id)

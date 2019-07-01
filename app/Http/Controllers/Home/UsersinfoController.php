@@ -7,24 +7,27 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Users;
 use App\Models\UsersInfos;
+use App\Models\FriendsLinks;
 use DB;
 class UsersinfoController extends Controller
 {
     //
     public function index($id)
      {
+        $friends = FriendsLinks::where('status',1)->get();
         // 根据id找到用户信息 
     	$user_data = Users::where('id',$id)->first();
     	// 显示 用户个人信息页面
-    	return view('home.usersinfo.index',['user_data'=>$user_data]);
+    	return view('home.usersinfo.index',['user_data'=>$user_data,'friends'=>$friends]);
     }
 
     public function edit($id)
     {
+        $friends = FriendsLinks::where('status',1)->get();
     	// 根据id 查到需要修改的用户数据
     	$user_data = Users::find($id);
         // 加载修改个人信息页面 将数据分配到页面中
-    	return view('home.usersinfo.edit',['user_data'=>$user_data]);
+    	return view('home.usersinfo.edit',['user_data'=>$user_data,'friends'=>$friends]);
     }
 
     public function update(Request $request,$id)

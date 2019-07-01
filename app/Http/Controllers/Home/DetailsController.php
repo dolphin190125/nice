@@ -9,6 +9,7 @@ use App\Models\Goods;
 use App\Models\Brands;
 use App\Models\Speaks;
 use App\Models\Goodsinfos;
+use App\Models\FriendsLinks;
 use App\Http\Controllers\Home\CarController;
 class DetailsController extends Controller
 {
@@ -27,12 +28,12 @@ class DetailsController extends Controller
         // foreach($gooddata as $k=>$v){
         //     $value = $v->status;
         // }
-
+        $friends = FriendsLinks::where('status',1)->get();
         // 如果没有详情,就返回
         if(empty($goodsinfos)){
             return back();
         }
-        return view('home.details.index',['goods'=>$goods,'goodsinfos'=>$goodsinfos,'countCar'=>$countCar,'speak'=>$speak,'gooddata'=>$gooddata]);
+        return view('home.details.index',['goods'=>$goods,'goodsinfos'=>$goodsinfos,'countCar'=>$countCar,'speak'=>$speak,'gooddata'=>$gooddata,'friends'=>$friends]);
     }
 
 
