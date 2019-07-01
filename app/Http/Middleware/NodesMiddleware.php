@@ -18,6 +18,7 @@ class NodesMiddleware
         // 获取session 可以操作的控制器和方法名
         $nodes = session('admin_user_nodes');
         // dump($nodes);
+        // dump($nodes);
         // 获取所有可以操作的控制器
         $controller_all = array_keys($nodes);
         // dump($controller_all);
@@ -33,6 +34,8 @@ class NodesMiddleware
 
         // dump($controllerName);
         // dump($actionName);
+
+        // dd();
 
         if(!in_array($controllerName,$controller_all)){
             // echo '没有权限 ---- 控制器';
