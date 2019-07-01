@@ -71,7 +71,7 @@ class LoginController extends Controller
     	session(['admin_login'=>false]);
     	session(['admin_user'=>null]);
 
-    	return back();
+    	return redirect('/admin/login');
     }
 
     // 修改头像页面

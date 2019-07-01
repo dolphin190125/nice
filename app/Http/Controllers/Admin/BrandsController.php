@@ -31,7 +31,7 @@ class BrandsController extends Controller
      */
     public function create()
     {
-        // 显示 添加页面
+        // 加载 添加页面
         return view('admin.brands.create');
     }
 
@@ -43,6 +43,7 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
+        // 验证数据
         $this->validate($request, [
             'bname' => 'required|max:128',
             'img' => 'required',
@@ -60,7 +61,7 @@ class BrandsController extends Controller
         // 处理 添加操作
         $data = $request->all();
         $brand = new Brands;
-        // 
+         
         $brand->bname = $data['bname'];
         $brand->img = $brands_path;
         $brand->status = 0;
@@ -92,6 +93,7 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
+        // 找到需要修改的数据
         $brand = Brands::find($id);
         // 显示 品牌修改页面
         return view('admin.brands.edit',['brand'=>$brand]);
@@ -115,7 +117,7 @@ class BrandsController extends Controller
         }else{
             $brands_path = $request->input('old_img');
         }
-
+        // 找到需要修改的数据 执行修改
         $brand = Brands::find($id);
         
         $brand->img = $brands_path;

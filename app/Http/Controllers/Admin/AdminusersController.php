@@ -18,10 +18,10 @@ class AdminusersController extends Controller
     {
         // 接收查询的数据
         $search_uname = $request->input('search_uname','');
-
+        // 
         $admin_users_data = DB::table('admin_users')->where('uname','like','%'.$search_uname.'%')->paginate(2);
 
-        //
+        // 加载页面 后台用户
         return view('admin.adminusers.index',['admin_users_data'=>$admin_users_data,'search_uname'=>$search_uname]);
     }
 
@@ -35,7 +35,7 @@ class AdminusersController extends Controller
 
         // 获取所有的角色
         $roles_data = DB::table('roles')->get();
-
+        // 加载添加页面
         return view('admin.adminusers.create',['roles_data'=>$roles_data]);
     }
 
@@ -74,19 +74,19 @@ class AdminusersController extends Controller
         }else{
             $path = '/ad/img/tou.jpg';
         }
-
+        // 接收添加的数据
         $uname = $request->input('uname','');
         $upass = $request->input('upass','');
         $repass = $request->input('repass','');
         $role_id = $request->input('role_id','');
         
-
+        // 将数据分别放入数组中 用户插入到库中
         $temp['uname'] = $uname;
         $temp['upass'] = Hash::make($upass);
         $temp['profile'] = $path;
-
+        // 拿到刚插入的用户id
         $user_id = DB::table('admin_users')->insertGetId($temp);
-
+        // 将用户id 添加到adminusers_roles表中 用于查看用户和角色之间的关系
         $res = DB::table('adminusers_roles')->insert(['user_id'=>$user_id,'role_id'=>$role_id]);
 
          if($user_id && $res){
@@ -117,15 +117,15 @@ class AdminusersController extends Controller
      */
     public function edit($id)
     {
-
+        // 根据用户id 查询到需要修改的用户数据
         $adminuser_data = DB::table('admin_users')->where('id',$id)->first();
         
          // 获取所有的角色
-         $roles_data = DB::table('roles')->get();
-
+        $roles_data = DB::table('roles')->get();
+        // 通过用户id 在关系表中查询出当前用户的角色
         $role_data = DB::table('adminusers_roles')->where('user_id',$id)->first();
-        // dd($roles_data);
-
+        
+        // 加载修改页面 并将数据分配到页面中
         return view('admin.adminusers.edit',['roles_data'=>$roles_data,'adminuser_data'=>$adminuser_data,'role_data'=>$role_data]);
     }
 
@@ -138,16 +138,14 @@ class AdminusersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-
+       
+        // 获取到修改的数据
         $uname = $request->input('uname','');
-        // $profile = $path;
         $role_id = $request->input('role_id','');
-
-
+        // 修改当前用户的角色
         $res = DB::table('adminusers_roles')->where('user_id',$id)->update(['role_id'=>$role_id]);
 
-         if($res){
+        if($res){
             return redirect('admin/adminusers')->with('success','修改成功');
         }else{
             return back()->with('error','修改失败');

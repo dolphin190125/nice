@@ -15,7 +15,7 @@ Route::get('/', function () {
 
     return view('welcome');
 });
-// Route::get('admin/add','Admin\InsertController@add');
+
 // 后台登录页面
 Route::get('admin/login','Admin\LoginController@login');
 Route::post('admin/dologin','Admin\LoginController@dologin');
@@ -91,11 +91,15 @@ Route::post('home/safe/changePass/{id}','Home\SafeController@changePass');
 
 
 
+// 前台 我的收货地址 路由
+Route::get('home/address/selectaddress/{id}','Home\AddressController@selectaddress');
+Route::get('home/address/address/{id}','Home\AddressController@address');
+Route::post('home/address/doaddress/{id}','Home\AddressController@doaddress');
+Route::get('home/address/destroy/{id}','Home\AddressController@destroy');
 
 
 
-
-
+ 
 
 
 

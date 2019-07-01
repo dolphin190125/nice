@@ -22,7 +22,8 @@ class OrderController extends Controller
     {
         // 没登录不能生成订单,退到登录页面
         if(empty(session('home_login'))){
-            return view('home.login.index');
+            echo "<script>alert('请先登录');location.href='/home/login'</script>";
+            exit;
         }
         $data = $request->all();
         $id = $data['ad'];
@@ -64,6 +65,10 @@ class OrderController extends Controller
 	// 结算页面
     public function account(Request $request)
     {
+         if(empty(session('home_login'))){
+            echo "<script>alert('请先登录');location.href='/home/login'</script>";
+            exit;
+        }
     	// $_SESSION['car'] = null;
         // 加载模板
         if(!empty($_SESSION['car'])){

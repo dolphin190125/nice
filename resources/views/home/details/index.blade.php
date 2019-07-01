@@ -208,20 +208,10 @@
                 	<table border="0" align="center" style="width:100%; font-family:'宋体'; margin:10px auto;" cellspacing="0" cellpadding="0">
                       <tr>
                         <td>商品名称：{{$goods->title}}</td>
-                        <td>商品编号：1546211</td>
                         <td>品牌： {{ $goods->goodsbrands->bname }} </td>
                         <td>上架时间：{{ $goods->created_at }} </td>
                       </tr>
-                      
-                      <!-- <tr>
-                        <td>容量：1ml-15ml </td>
-                        <td>类型：女士香水，Q版香水，组合套装</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                      </tr> -->
-                    </table>                                               
-                                            
-                        
+                    </table>   
                 </div>
           	</div>  
             
@@ -234,10 +224,7 @@
                         <td>
                         	<b>{{$goods->title}}</b><br />
                             【商品规格】：{{$goodsinfos->capa}}<br />
-                            【商品质地】：液体<br />
                             【商品日期】：{{$goods->created_at}}<br />
-                            【商品产地】：法国<br />
-                            【商品包装】：无外盒 无塑封<br />
                             【商品香调】：{{$goodsinfos->taste}}<br />
                             【商品描述】：{{$goodsinfos->desc}}<br />
                         </td>

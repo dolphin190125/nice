@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="/ho/js/select.js"></script>
         
     
-<title>尤洪</title>
+<title>Nice前台</title>
 </head>
 <body>  
 <!--Begin Header Begin-->
@@ -40,9 +40,8 @@
             	<div class="left_m_t t_bg1">订单中心</div>
                 <ul>
                 	<li><a href="/home/order/myorder">我的订单</a></li>
-                    <li><a href="">收货地址</a></li>
-                    <li><a href="#">缺货登记</a></li>
-                    <li><a href="#">跟踪订单</a></li>
+                    <li><a href="/home/address/selectaddress/{{ session('home_user')->id }}">收货地址</a></li>
+                   
                 </ul>
             </div>
             <div class="left_m">
@@ -50,9 +49,7 @@
                 <ul>
                 	<li><a href="/home/usersinfo/{{ session('home_user')->id }}" class="now">用户信息</a></li>
                     <li><a href="">我的收藏</a></li>
-                    <li><a href="">我的留言</a></li>
-                    <li><a href="">推广链接</a></li>
-                    <li><a href="#">我的评论</a></li>
+                    <li><a href="">我的评论</a></li>
                 </ul>
             </div>
             <div class="left_m">

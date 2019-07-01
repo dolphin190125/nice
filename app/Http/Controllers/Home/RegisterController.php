@@ -19,71 +19,68 @@ class RegisterController extends Controller
     // 执行 邮箱注册
     public function insert(Request $request)
     {
-    	// dump($request->all());
+    	
+        // 接收用户输入的信息 
         $upass = $request->input('upass'); 
         $repass = $request->input('repass'); 
         $email = $request->input('email'); 
 
        
-        // 给密码加正则验证
-        // $upass_a = "/^\w{6,18}$/";
-        // $repass_a ="/^\w{6,18}$/";
+       
+         // 给邮箱加正则验证
         if(empty($email)){
              echo "<script>alert('邮箱不能为空');location.href='/home/register'</script>";
              exit;
         }
+         // 给密码加正则验证
         if(!preg_match("/^[\w]{6,18}$/",$upass)){
              echo "<script>alert('密码格式错误');location.href='/home/register'</script>";
              exit;
         }
+         // 给确认密码加正则验证
          if(!preg_match("/^[\w]{6,18}$/",$repass)){
              echo "<script>alert('确认密码格式错误');location.href='/home/register'</script>";
              exit;
         }
-
+         // 两次输入密码做比较 
         if($upass != $repass){
             echo "<script>alert('两次密码输入不一致');location.href='/home/register'</script>";
             exit;
         }
 
-       
+        // 给库中数据进行添加操作
         $token  = str_random(50);
-
         $user = new Users;
         $user->uname = $email;
         $user->upass = Hash::make($upass);
         $user->email = $email;
         $user->token = $token;
+        // 在库中能否找到正在注册的用户 如果有 提示用户已存在 如果没有 则继续注册 将数据存到库中
         $userdata = Users::where('uname','=',$email)->first();
         if(!$userdata){
-             $res = $user->save();
-            
+            $res = $user->save();
             if($res){
-
                 // send 模板的名字 模板里几个参数 
                  Mail::send('home.register.mail', ['id' => $user->id,'token'=>$token], function ($m) use ($email) {
                
                 // to 发送到的地址 subject 邮件标题
                 $s = $m->to($email)->subject('【奈斯商城】 提醒邮件');
                  if($s){
-
                      echo "<script>alert('用户注册成功,请尽快完成激活');location.href='https://mail.qq.com/cgi-bin/loginpage'</script>";
                     }
                 });
-                 
-                 
             }else{
                 echo "<script>alert('注册失败');location.href='/home/register'</script>";
             }
         }else{
-                 echo "<script>alert('用户已存在');location.href='/home/register'</script>";
-            }
+            echo "<script>alert('用户已存在');location.href='/home/register'</script>";
+        }
        
     }
 
     public function changeStatus($id,$token)
     {
-       // echo '激活'.$id;
+       // 激活 用户
        $user = Users::find($id);
        // dd($user);
        // 验证token
@@ -100,6 +97,8 @@ class RegisterController extends Controller
             echo "<script>alert('激活失败');location.href='/home/register'</script>";
        }
     }
+
+
     // 执行手机号注册 
     public function store(Request $request)
     {
@@ -125,11 +124,13 @@ class RegisterController extends Controller
     		echo "<script>alert('验证码错误');location.href='/home/register'</script>";
     		exit;
     	}
+
+        // 接收用户输入的密码和确认密码
     	$upass = $request->input('upass',0);
     	
     	$repass = $request->input('repass',0);
-
-		  if(!preg_match("/^[\w]{6,18}$/",$upass)){
+        // 正则验证
+		if(!preg_match("/^[\w]{6,18}$/",$upass)){
              echo "<script>alert('密码格式错误');location.href='/home/register'</script>";
              exit;
         }
@@ -141,9 +142,11 @@ class RegisterController extends Controller
     		echo "<script>alert('两次密码输入不一致');location.href='/home/register'</script>";
     		exit;
     	}
- 
+    
+        // 接收到的所有数据
     	$data = $request->all();
     	// dump($data);
+        // 执行添加操作 
     	$user = new Users;
     	$user->uname = $data['phone'];
     	$user->upass = Hash::make($data['upass']);
@@ -202,9 +205,6 @@ class RegisterController extends Controller
 		// }
     	
     }
-
-
-
 
 /**
  * 请求接口返回内容

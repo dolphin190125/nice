@@ -181,7 +181,7 @@
             <li><a href="Digital.html">数码</a></li>
             <li><a href="GroupBuying.html">团购</a></li>
         </ul>
-        <div class="m_ad">中秋送好礼！</div>
+        
     </div>
 </div>
 <!--End Menu End--> 
@@ -193,7 +193,7 @@
                 <ul class="slide_box bxslider">
                     @foreach($banners_data as $k=>$v)
                     @if($v->status == 1)
-                    <li><img src="/uploads/{{ $v->pic }}" width="740" height="401" /></li>
+                    <li><img src="/uploads/{{ $v->pic }}" width="740" height="401" title="{{ $v->desc }}" /></li>
                     @endif
                     @endforeach
                 </ul>	
@@ -214,43 +214,10 @@
         </script>
         <!--End Banner End-->
         <div class="inews">
-        	<div class="news_t">
-            	<span class="fr"><a href="#">更多 ></a></span>新闻资讯
-            </div>
-            <ul>
-            	<li><span>[ 特惠 ]</span><a href="#">掬一轮明月 表无尽惦念</a></li>
-            	<li><span>[ 公告 ]</span><a href="#">好奇金装成长裤新品上市</a></li>
-            	<li><span>[ 特惠 ]</span><a href="#">大牌闪购 · 抢！</a></li>
-            	<li><span>[ 公告 ]</span><a href="#">发福利 买车就抢千元油卡</a></li>
-            	<li><span>[ 公告 ]</span><a href="#">家电低至五折</a></li>
-            </ul>
-            <div class="charge_t">
-            	话费充值<div class="ch_t_icon"></div>
-            </div>
-            <form>
-            <table border="0" style="width:205px; margin-top:10px;" cellspacing="0" cellpadding="0">
-              <tr height="35">
-                <td width="33">号码</td>
-                <td><input type="text" value="" class="c_ipt" /></td>
-              </tr>
-              <tr height="35">
-                <td>面值</td>
-                <td>
-                	<select class="jj" name="city">
-                      <option value="0" selected="selected">100元</option>
-                      <option value="1">50元</option>
-                      <option value="2">30元</option>
-                      <option value="3">20元</option>
-                      <option value="4">10元</option>
-                    </select>
-                    <span style="color:#ff4e00; font-size:14px;">￥99.5</span>
-                </td>
-              </tr>
-              <tr height="35">
-                <td colspan="2"><input type="submit" value="立即充值" class="c_btn" /></td>
-              </tr>
-            </table>
-            </form>
+        	<div class="news_t" style="width: 247px;height: 401px;">
+            	  <img src="/ho/images/tm_r.jpg" style="width: 247px;height: 401px">
+            </div> 
+         
         </div>
     </div>
     <!--Begin 热门商品 Begin-->
@@ -347,8 +314,8 @@
         </div>
         <div class="fresh_right">
             <ul>
-                <li><a href="#"><img src="/ho/images/fre_b1.jpg" width="260" height="220" /></a></li>
-                <li><a href="#"><img src="/ho/images/fre_b2.jpg" width="260" height="220" /></a></li>
+                <li><a href="#"><img src="/ho/images/time (7).jpg" width="260" height="220" /></a></li>
+                <li><a href="#"><img src="/ho/images/time (8).jpg" width="260" height="220" /></a></li>
             </ul>
         </div>
     </div>    
@@ -408,8 +375,8 @@
         </div>
         <div class="fresh_right">
         	<ul>
-            	<li><a href="#"><img src="/ho/images/tel_b1.jpg" width="260" height="220" /></a></li>
-                <li><a href="#"><img src="/ho/images/tel_b2.jpg" width="260" height="220" /></a></li>
+            	<li><a href="#"><img src="/ho/images/9.jpg" width="260" height="220" /></a></li>
+                <li><a href="#"><img src="/ho/images/10.jpg" width="260" height="220" /></a></li>
             </ul>
         </div>
     </div>    
