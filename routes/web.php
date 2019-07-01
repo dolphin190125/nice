@@ -187,14 +187,15 @@ Route::group(['middleware'=>'nodes'],function(){
 	Route::get('admin/ordermanage/send/{id}','Admin\OrdermanageController@send');
 	// 后台订单取消订单
 	Route::get('admin/ordermanage/cancel/{id}','Admin\OrdermanageController@cancel');
-	// 申请取消订单方法
-	Route::get('admin/ordermanage/apply/{id}','Admin\OrdermanageController@apply');
-	// 确认收货
-	Route::get('admin/ordermanage/confirm/{id}','Admin\OrdermanageController@confirm');
+	
 	// 后台查看评论
 	Route::get('admin/speak/index','Admin\SpeakController@index');
 
 });
+// 申请取消订单方法
+Route::get('admin/ordermanage/apply/{id}','Admin\OrdermanageController@apply');
+// 确认收货
+Route::get('admin/ordermanage/confirm/{id}','Admin\OrdermanageController@confirm');
 
 
 
