@@ -21,26 +21,26 @@
 	      <tr height="45">
 	        <td align="right">性 &nbsp; &nbsp; 别: &nbsp; &nbsp;</td>
 	        @if(!empty($user_data->userinfo->sex))
-		        @if($user_data->userinfo->sex == 0)
-		        <td><input type="radio"  name="sex" value="0" checked>&nbsp;女
-					<input type="radio" name="sex" value="1">&nbsp;男
-					<input type="radio" name="sex" value="2">&nbsp;保密
+		        @if($user_data->userinfo->sex == 1)
+		        <td><input type="radio"  name="sex" value="1" checked>&nbsp;女
+					<input type="radio" name="sex" value="2">&nbsp;男
+					<input type="radio" name="sex" value="3">&nbsp;保密
 		        </td>
-		        @elseif($user_data->userinfo->sex == 1)
-		        <td><input type="radio"  name="sex" value="0">&nbsp;女
-					<input type="radio" name="sex" value="1" checked>&nbsp;男
-					<input type="radio" name="sex" value="2">&nbsp;保密
+		        @elseif($user_data->userinfo->sex == 2)
+		        <td><input type="radio"  name="sex" value="1">&nbsp;女
+					<input type="radio" name="sex" value="2" checked>&nbsp;男
+					<input type="radio" name="sex" value="3">&nbsp;保密
 		        </td>
 		        @else
-		        <td><input type="radio"  name="sex" value="0">&nbsp;女
-					<input type="radio" name="sex" value="1">&nbsp;男
-					<input type="radio" name="sex" value="2" checked>&nbsp;保密
+		        <td><input type="radio"  name="sex" value="1">&nbsp;女
+					<input type="radio" name="sex" value="2">&nbsp;男
+					<input type="radio" name="sex" value="3" checked>&nbsp;保密
 		        </td>
 		        @endif
 		    @else
-		     	<td><input type="radio"  name="sex" value="0">&nbsp;女
-					<input type="radio" name="sex" value="1">&nbsp;男
-					<input type="radio" name="sex" value="2">&nbsp;保密
+		     	<td><input type="radio"  name="sex" value="1">&nbsp;女
+					<input type="radio" name="sex" value="2">&nbsp;男
+					<input type="radio" name="sex" value="3">&nbsp;保密
 		        </td>
 		    @endif
 	      </tr>

@@ -18,6 +18,7 @@ class OrderController extends Controller
     {
         return view('home.order.create');
     }
+    // 把数据添加到订单表
     public function index(Request $request)
     {
         // 没登录不能生成订单,退到登录页面
@@ -44,6 +45,7 @@ class OrderController extends Controller
             $orders->pay = $pay;
             $orders->save();
         }
+        // 引用生成订单的方法
         return redirect('home/order/myods');
     } 
     // 生成订单的页面
@@ -59,6 +61,7 @@ class OrderController extends Controller
         foreach($ods as $k=>$v){
             $zong += $v->price;
         }
+        //加载生成订单的页面
         return view('home.order.index',['ods'=>$ods,'zong'=>$zong]);
     }
 	// 结算页面
@@ -85,7 +88,7 @@ class OrderController extends Controller
         if(empty(session('home_login'))){
             return view('home.login.index');
         }
-        // dd(session('home_user')->id);
+        // 拿到本商品的收货地址
         $address = Addresses::where('users_id',session('home_user')->id)->get();
         
         // dd($cars_all);
@@ -161,6 +164,18 @@ class OrderController extends Controller
             echo "<script>alert('评论成功');location.href='/home/order/myorder'</script>";
         }else{
             return back()->with('error','添加失败');
+        }
+    }
+    // 删除失效订单
+    public function delete($id)
+    {
+
+        
+        $res = Orders::where('id',$id)->delete();
+        if(!$res){
+            return back();
+        }else{
+            return redirect('home/order/myorder');
         }
     }
 }

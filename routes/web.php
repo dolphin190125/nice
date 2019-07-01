@@ -159,6 +159,8 @@ Route::post('home/safe/changePass/{id}','Home\SafeController@changePass');
 
 // 后台分类的路由
 Route::resource('admin/cates','Admin\CatesController');
+Route::get('admin/show/sta/{id}','Admin\ShowController@sta');
+Route::get('admin/show/desta/{id}','Admin\ShowController@desta');
 // 后台商品的路由
 Route::resource('admin/goods','Admin\GoodsController');
 // 后台商品详情添加
@@ -221,7 +223,13 @@ Route::get('home/order/index','Home\OrderController@index');
 Route::get('home/order/myorder','Home\OrderController@myorder');
 // 前台生成订单付款页
 Route::get('home/order/myods','Home\OrderController@myods');
+// 前台删除订单
+Route::get('home/order/delete/{id}','Home\OrderController@delete');
 // 前台添加评论
 Route::get('home/order/speak/{id}','Home\OrderController@speak');
 // 前台执行添加评论
 Route::post('home/order/dospeak/{id}','Home\OrderController@dospeak');
+// 查看评论
+Route::get('home/speak/index','Home\SpeakController@index');
+// 删除评论
+Route::get('home/speak/delete','Home\SpeakController@delete');

@@ -10,7 +10,6 @@
 </style>
 @endsection
 
-
 @section('content')
 
 <form action="/admin/cates" method="get">
@@ -42,6 +41,13 @@
 						<td>
 							@if(substr_count($v->path,',') < 2)
 							<a href="/admin/cates/create?id={{$v->id}}" class="btn btn-info">添加子分类</a>
+							@endif
+							@if(substr_count($v->path,',') == 2)
+								@if($v->status == 1)
+									<a href="/admin/show/desta/{{$v->id}}" class="btn btn-danger">取消显示</a>
+								@else
+									<a href="/admin/show/sta/{{$v->id}}" class="btn btn-warning">横栏显示</a>
+								@endif
 							@endif
 						</td>                                       
 					</tr>

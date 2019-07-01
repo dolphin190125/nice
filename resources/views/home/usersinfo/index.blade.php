@@ -29,9 +29,9 @@
           </tr>
           <tr>
             @if(!empty($user_data->userinfo->sex))
-                @if($user_data->userinfo->sex == 0)
+                @if($user_data->userinfo->sex == 1)
                   <td width="40%">性&nbsp; &nbsp; 别:  &nbsp; <span style="color:#555555;">女</span></td>
-                @elseif($user_data->userinfo->sex == 1)
+                @elseif($user_data->userinfo->sex == 2)
                   <td width="40%">性&nbsp; &nbsp; 别:  &nbsp; <span style="color:#555555;">男</span></td>
                 @else
                   <td width="40%">性&nbsp; &nbsp; 别:  &nbsp; <span style="color:#555555;">保密</span></td>

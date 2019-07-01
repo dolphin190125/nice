@@ -42,6 +42,22 @@
 								  	<input type="file" id="inputSuccess" name="img" >
 								</div>
 							</div>
+							<div class="control-group success">
+							<label class="control-label" for="inputSuccess">所 属 分 类:</label>
+							<div class="controls">
+							  	<select id="selectError3" name="cates_id">
+									@foreach($cates as $k=>$v)
+										@if(substr_count($v->path,',') == 2)
+											@if($v->id == $cates_id)
+												<option value="{{$v->id}}" selected>{{$v->cates_name}}</option>
+											@else
+												<option value="{{$v->id}}">{{$v->cates_name}}</option>
+											@endif
+										@endif
+									@endforeach
+							  	</select>
+							</div>
+						</div>
 							@if($brand->status == 0)
 								<div class="controls">
 								  <label class="radio">

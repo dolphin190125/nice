@@ -8,6 +8,7 @@ use App\Models\Goods;
 use App\Models\Banners;
 use App\Models\Tagnames;
 use App\Models\Brands;
+use App\Models\FriendsLinks;
 use App\Http\Controllers\Home\CarController;
 class IndexController extends Controller
 {
@@ -34,7 +35,9 @@ class IndexController extends Controller
         $banners_data = Banners::all();
         // 获取标签云所有数据
         $tagdatas = Tagnames::all();
+        $friends = FriendsLinks::where('status',1)->get();
+        // dd($friends);
         // 加载模板
-        return view('home.index.index',['banners_data'=>$banners_data,'goods'=>$goods,'countCar'=>$countCar,'tagdatas'=>$tagdatas]);
+        return view('home.index.index',['banners_data'=>$banners_data,'goods'=>$goods,'countCar'=>$countCar,'tagdatas'=>$tagdatas,'friends'=>$friends]);
     }
 }

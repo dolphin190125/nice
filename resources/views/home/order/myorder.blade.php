@@ -21,24 +21,28 @@
           <td>￥{{$v->priceall}}.00</td>
           <td>
               @if($v->status == 0)
-                <font style="color:brown">未发货</font>
+                <font style="color:#6600CC">未发货</font>
               @elseif($v->status == 1)
-                <font style="color:brown">已发货</font>
+                <font style="color:#33ccff">已发货</font>
               @elseif($v->status == 2)
-                <font style="color:brown">已收货</font>
+                <font style="color:#669900">已收货</font>
               @elseif($v->status == 3)
-                <font style="color:brown">已取消订单</font>
+                <font style="color:#FF3366">已取消订单</font>
               @elseif($v->status == 4)
-                <font style="color:brown">申请取消订单</font>
+                <font style="color:#FF9900">申请取消订单</font>
               @endif
           </td>
           <td>
-            <a href="/admin/ordermanage/apply/{{$v->id}}" style="color:tomato">取消订单 </a>
-            @if($v->status != 2)
-            <a href="/admin/ordermanage/confirm/{{$v->id}}" style="color:green"> 确认收货</a>
-            @endif
-            @if($v->status == 2)
-            <a href="/home/order/speak/{{$v->id}}" style="color:green"> 去评论</a>
+            @if($v->status !=3)
+                <a href="/admin/ordermanage/apply/{{$v->id}}" style="color:#fa8072"><button style="border:1px solid #fa8072; background:#fa8072;width:70px;height:30px;color:#fff">取消订单</button> </a>
+                @if($v->status != 2)
+                  <a href="/admin/ordermanage/confirm/{{$v->id}}" style="color:#fa8072"> <button style="border:1px solid #fa8072; background:#fa8072;width:70px;height:30px;color:#fff">确认收货</button></a>
+                @endif
+                @if($v->status == 2)
+                  <a href="/home/order/speak/{{$v->id}}" style="color:#fa8072"><button style="border:1px solid #fa8072; background:#fa8072;width:70px;height:30px;color:#fff"> 去评论</button></a>
+                @endif
+            @else
+                <a href="/home/order/delete/{{$v->id}}" style="color:#339999"><button style="border:1px solid #339999; background:#339999;width:140px;height:30px;color:#fff"> 删除失效订单</button></a>
             @endif
           </td>
         </tr>

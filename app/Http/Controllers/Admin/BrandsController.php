@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Brands;
+use App\Models\Cates;
 class BrandsController extends Controller
 {
     /**
@@ -31,8 +32,9 @@ class BrandsController extends Controller
      */
     public function create()
     {
+        $cates = Cates::all();
         // 显示 添加页面
-        return view('admin.brands.create');
+        return view('admin.brands.create',['cates'=>$cates]);
     }
 
     /**
@@ -63,6 +65,7 @@ class BrandsController extends Controller
         // 
         $brand->bname = $data['bname'];
         $brand->img = $brands_path;
+        $brand->cates_id = $data['cates_id'];
         $brand->status = 0;
         // 执行数据库添加操作
         $res = $brand->save();
@@ -92,9 +95,13 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
+        $cates = Cates::all();
+        
         $brand = Brands::find($id);
+        $cate = Cates::find($brand->cates_id);
+        $cates_id=$cate->id;
         // 显示 品牌修改页面
-        return view('admin.brands.edit',['brand'=>$brand]);
+        return view('admin.brands.edit',['brand'=>$brand,'cates'=>$cates,'cates_id'=>$cates_id]);
     }
 
     /**
@@ -120,6 +127,7 @@ class BrandsController extends Controller
         
         $brand->img = $brands_path;
         $brand->status = $request->input('status');
+        $brand->cates_id = $request->input('cates_id','');
         // 执行数据库添加操作
         $res = $brand->save();
          if($res){

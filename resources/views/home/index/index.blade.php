@@ -172,14 +172,16 @@
         </div>  
         <!--End 商品分类详情 End-->                                                     
     	<ul class="menu_r">                                                                                                    
-        	<li><a href="Index.html">首页</a></li>
-            <li><a href="Food.html">美食</a></li>
-            <li><a href="Fresh.html">生鲜</a></li>
-            <li><a href="HomeDecoration.html">家居</a></li>
-            <li><a href="SuitDress.html">女装</a></li>
-            <li><a href="MakeUp.html">美妆</a></li>
-            <li><a href="Digital.html">数码</a></li>
-            <li><a href="GroupBuying.html">团购</a></li>
+        	<li><a href="/home/index">首页</a></li>
+            @foreach($common_cates_data as $k=>$v)
+                @foreach($v->sub as $kk=>$vv)
+                    @foreach($vv->sub as $kkk=>$vvv)
+                        @if($vvv->status == 1)
+                        <li><a href="/home/list?id={{ $vvv->id}}">{{$vvv->cates_name}}</a></li>
+                        @endif
+                    @endforeach
+                @endforeach
+            @endforeach
         </ul>
         <div class="m_ad">中秋送好礼！</div>
     </div>
@@ -255,11 +257,11 @@
     </div>
     <!--Begin 热门商品 Begin-->
     <div class="content mar_10">
-    	<div class="h_l_img">
-        	<div class="img"><img src="/ho/images/l_img.jpg" width="188" height="188" /></div>
+    	<div class="h_l_img" div="p_comment">
+        	<div class="img"><img src="/uploads/{{$goods[2]->pic}}" width="188" height="188" /></div>
             <div class="pri_bg">
-                <span class="price fl">￥53.00</span>
-                <span class="fr">16R</span>
+                <span class="price fl">￥{{$goods[2]->price}}.00</span>
+                <span class="fr">热门</span>
             </div>
         </div> 
         <div class="hot_pro">        	
@@ -347,8 +349,8 @@
         </div>
         <div class="fresh_right">
             <ul>
-                <li><a href="#"><img src="/ho/images/fre_b1.jpg" width="260" height="220" /></a></li>
-                <li><a href="#"><img src="/ho/images/fre_b2.jpg" width="260" height="220" /></a></li>
+                <li><a href="#"><img src="/ho/images/asas.jfif" width="260" height="220" /></a></li>
+                <li><a href="#"><img src="/ho/images/bsbs.jfif" width="260" height="220" /></a></li>
             </ul>
         </div>
     </div>    
@@ -408,8 +410,8 @@
         </div>
         <div class="fresh_right">
         	<ul>
-            	<li><a href="#"><img src="/ho/images/tel_b1.jpg" width="260" height="220" /></a></li>
-                <li><a href="#"><img src="/ho/images/tel_b2.jpg" width="260" height="220" /></a></li>
+            	<li><a href="#"><img src="/ho/images/cscs.jfif" width="260" height="220" /></a></li>
+                <li><a href="#"><img src="/ho/images/dsds.jfif" width="260" height="220" /></a></li>
             </ul>
         </div>
     </div>    
@@ -485,6 +487,12 @@
         </div>
     </div>
     <div class="b_nav">
+        <dl>
+            <dt><a href="#">友情链接</a></dt>
+            @foreach($friends as $ks=>$vs)
+            <dd><a href="{{$vs->url}}">{{$vs->fname}}</a></dd>
+            @endforeach
+        </dl>
     	<dl>                                                                                            
         	<dt><a href="#">新手上路</a></dt>
             <dd><a href="#">售后流程</a></dd>
@@ -505,12 +513,7 @@
             <dd><a href="#">我的收藏</a></dd>
             <dd><a href="#">我的订单</a></dd>
         </dl>
-        <dl>
-        	<dt><a href="#">服务保证</a></dt>
-            <dd><a href="#">退换货原则</a></dd>
-            <dd><a href="#">售后服务保证</a></dd>
-            <dd><a href="#">产品质量保证</a></dd>
-        </dl>
+
         <dl>
         	<dt><a href="#">联系我们</a></dt>
             <dd><a href="#">网站故障报告</a></dd>

@@ -57,6 +57,7 @@ class ListController extends Controller
             // 如果搜索不是空的,就把搜索到的商品,放到goods里面
             if(preg_match('/[\w]/',$search)){
                 $goods = DB::table('goods')->where('title','like','%'.$search.'%')->get();
+                $pgood = DB::table('goods')->where('title','like','%'.$search.'%')->orderBy('sale','asc')->paginate(4);
             }else{
                 // 把视图里面的goods_id拿出来,通过搜索
                 $gid = DB::table('view_goods_words')->select('goods_id')->where('word',$search)->get();
@@ -68,16 +69,19 @@ class ListController extends Controller
                 }
                 // 通过gids来找到相关的所有商品
                 $goods = DB::table('goods')->whereIn('id',$gids)->get();
+                $pgood = DB::table('goods')->whereIn('id',$gids)->orderBy('sale','asc')->paginate(4);
             }
         }else{
             // 如果搜索是空的,那就通过传来的分类id,搜索相关商品
             if(!empty($id)){
                 $goods = Goods::where('cates_id',$id)->get();
+                $pgood = Goods::where('cates_id',$id)->orderBy('sale','asc')->paginate(4);
             }
         }
         // 获取所有的轮播图
         $brands = Brands::all();
-        return view('home.list.index',['brands'=>$brands,'goods'=>$goods,'countCar'=>$countCar]);
+        
+        return view('home.list.index',['brands'=>$brands,'goods'=>$goods,'countCar'=>$countCar,'pgood'=>$pgood,'id'=>$id]);
     }
 
     public function word($text)

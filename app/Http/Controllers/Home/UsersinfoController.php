@@ -64,6 +64,5 @@ class UsersinfoController extends Controller
             DB::rollBack();
             echo "<script>alert('修改失败');location.href='/home/usersinfo/update/{{$id}}'</script>";
         }
-    	
     }
 }

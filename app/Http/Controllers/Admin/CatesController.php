@@ -73,4 +73,5 @@ class CatesController extends Controller
             return back()->with('error','添加失败');
         }
     }
+    
 }
