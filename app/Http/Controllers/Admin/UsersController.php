@@ -158,7 +158,14 @@ class UsersController extends Controller
         $res1 = $user->save();
 
         $userinfo = UsersInfos::where('users_id',$id)->first();
-        $userinfo->profile = $file_path;
+        if(empty($userinfo)){
+            $userinfo = new UsersInfos;
+            $userinfo->profile = $file_path;
+            $userinfo->users_id = $id;
+        }else{
+            $userinfo->profile = $file_path;
+        }
+        
         $res2 = $userinfo->save();
 
          if($res1 && $res2){
