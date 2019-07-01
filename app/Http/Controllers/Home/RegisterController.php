@@ -10,6 +10,10 @@ use Hash;
 use Mail;
 class RegisterController extends Controller
 {
+    public function aa()
+    {
+        echo "string";
+    }
     public function index()
     {
     	// 显示 注册页面	

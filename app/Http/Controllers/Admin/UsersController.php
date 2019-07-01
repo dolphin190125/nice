@@ -114,7 +114,10 @@ class UsersController extends Controller
     {
         // 根据id查询要修改的数据
         $user = Users::find($id);
-
+       /* $userinfo = UsersInfos::where('users_id',$id)->first(); 
+        if(empty($userinfo)){
+            return back()->with('error','暂无详情');
+        }*/
         // 显示 修改页面
         return view('admin.user.edit',['user'=>$user]);
     }

@@ -18,6 +18,9 @@ class UsersInfosController extends Controller
         // 根据用户id 查询用户的详情
         $userinfo = UsersInfos::where('users_id',$id)->first();
         
+        if(empty($userinfo)){
+            return back()->with('error','暂无详情');
+        }
         // 显示 用户详情 列表
         return view('admin.usersinfos.index',['userinfo'=>$userinfo]);
     }
